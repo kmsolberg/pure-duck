@@ -1,8 +1,12 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import logo from '../../images/boomtown-logo.svg';
+// import AppBar from 'material-ui/AppBar';
+// import RaisedButton from 'material-ui/RaisedButton';
 
-import './style.css';
+const Header = () => (
+
+    <div>
+        <h1>Hello Header</h1>
+    </div>
+);
 
 export default Header;
