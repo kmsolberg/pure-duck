@@ -1,7 +1,12 @@
 import React from 'react';
+import { Paper } from 'material-ui';
 
 const FormSubmission = () => (
-    <h1> FormSubmission!FormSubmission </h1>
+    <div>
+		<Paper >
+			<h1>FormSubmission FormSubmission FormSubmission</h1>
+		</Paper>
+	</div>
 );
 
 export default FormSubmission;
