@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 // route components
 import Login from '../../../ui/containers/Login/';
@@ -15,14 +15,15 @@ const renderRoutes = () => (
 
 <Router history={browserHistory}>
     <div>
-      <Route path="comments" component={Comments}/>
-      <Route path="signup" component={Signup}/>
-      <Route path="login" component={Login}/>
-      <Route path="submit" component={FormSubmission}/>
-      <Route path="student/:id" component={StudentProfile}/>
-      <Route path="instructor/:id" component={InstructorProfile}/>          
+      <Route path="/comments" component={Comments}/>
+      <Route path="/signup" component={Signup}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/submit" component={FormSubmission}/>
+      <Route path="/student/:id" component={StudentProfile}/>
+      <Route path="/instructor/:id" component={InstructorProfile}/>          
     </div>
   </Router>
 );
+
 
 export default renderRoutes;
