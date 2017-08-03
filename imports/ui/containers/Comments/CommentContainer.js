@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Comments from './Comments';
 
-class CommentContainer extends component {
+class CommentContainer extends Component {
     render () {
         return (
             <Comments />
