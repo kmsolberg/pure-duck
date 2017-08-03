@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
     background-image: url(/images/water.jpeg);
-    background-size: cover;
+    background-size: 100rem;
     background-repeat: no-repeat;
     color: turquoise;
 }
