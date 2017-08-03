@@ -1,4 +1,14 @@
-//Pure Duck
+# REDaction
 An app to give feedback.
 
-//Long weekend.  Where are you, huh?
+## A web app for quick after-class survey
+
+### Set-Up
+
+```meteor```
+
+### Technology Used
+
+- React
+- Webpack
+- VS code
