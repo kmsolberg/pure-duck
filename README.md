@@ -7,3 +7,13 @@
 ## Features:
 - Forms for students and instructors
 - Forum where you can read other peoples' comments!
+
+### Set-Up
+
+```meteor```
+
+### Technology Used
+
+- React
+- Webpack
+- VS code
