@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import Comments from './Comments';
 
-class CommentContainer extends Component {
+class CommentsContainer extends Component {
     render () {
         return (
-            <Comments />
+            <h1>WORK FOR THE LOVE OF GOD</h1>
         )
     }
 }
 
-export default CommentContainer;
+export default CommentsContainer;
