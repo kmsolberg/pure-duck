@@ -1,7 +1,9 @@
 import React from 'react';
 
+import CommentCardList from '../../components/CommentCardList/';
+
 const Comments = () => (
-    <h1> Comments! </h1>
+    <CommentCardList />
 );
 
 export default Comments;
