@@ -2,6 +2,23 @@ import { Mongo } from 'meteor/mongo';
  
 export const Forms = new Mongo.Collection('forms');
 
-Forms.insert({
-    _id: 'my_form'
-})
+FormSchema = new SimpleSchema ({
+    "title": {
+        type: String,
+        label: "Name of the form"
+    },
+    "cohort": {
+        type: Number,
+        label: "Which cohort is the form for?"
+    },
+    "class": {
+        type: String,
+        label: "Which class is the form for?"
+    },
+    "formSubmitted": {
+        type: Date,
+        label: "The date the form was submitted"
+    }
+});
+
+Form.attachSchema( FormSchema );
