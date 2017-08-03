@@ -1,6 +1,7 @@
 /* CSS declarations go here */
-* {
-    background: magenta;
+body {
+    background-image: url(/images/water.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: turquoise;
-
 }
