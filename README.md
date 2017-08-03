@@ -1,12 +1,11 @@
 # REDaction
+An app to give feedback.
 
-### A web app for quick after-class survey
+## A web app for quick after-class survey
 
 ### Set-Up
 
 ```meteor```
-```meteor mongo```
-
 
 ### Technology Used
 
