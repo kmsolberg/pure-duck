@@ -1,1 +1,6 @@
 /* CSS declarations go here */
+* {
+    background: magenta;
+    color: turquoise;
+
+}
