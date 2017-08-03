@@ -1,5 +1,12 @@
 import React from 'react';
-import { Paper, DropDownMenu, MenuItem, TextField } from 'material-ui';
+import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup } from 'material-ui';
+
+const styles = {
+  radioButton: {
+    marginBottom: 16,
+  }
+};
+
 
 const FormSubmission = () => (
     <div>
@@ -13,18 +20,90 @@ const FormSubmission = () => (
 				<MenuItem value={5} primaryText="Weekly" />
 			</DropDownMenu>
 			<div>
-				<h1>How are you feeling about the project?</h1>
-				<p>1  2  3  4  5</p>
+				<h1>How well do you think you did?</h1>
+				<h3>( 1-poorly, 5-well )</h3>
+				<RadioButtonGroup name="oneToFive">
+					<RadioButton
+						value="1"
+						label="1"
+						style={styles.radioButton}
+					/>
+					<RadioButton
+						value="2"
+						label="2"
+						style={styles.radioButton}
+					/>
+					<RadioButton
+						value="3"
+						label="3"
+						style={styles.radioButton}
+					/>
+					<RadioButton
+						value="4"
+						label="4"
+						style={styles.radioButton}
+					/>
+					<RadioButton
+						value="5"
+						label="5"
+						style={styles.radioButton}
+					/>
+				</RadioButtonGroup>
 			</div>
 			<div>
-				<h1>Do you enjoy it?</h1>
-				<p>True / False</p>
+				<h1>Do you feel like the lessons built toward the project?</h1>
+				<RadioButtonGroup name="trueOrFalse">
+					<RadioButton
+							value={true}
+							label="Yes"
+							style={styles.radioButton}
+					/>
+					<RadioButton
+							value={false}
+							label="No"
+							style={styles.radioButton}
+					/>
+					
+				</RadioButtonGroup>
 			</div>
 			<div>
-				<h1>Hurdles</h1>
+				<h1>What did you get stuck on?</h1>
 				<TextField
       				hintText="Type Here"
-					floatingLabelText="Hurdles"
+					floatingLabelText="You know..."
+					multiLine={true}
+					fullWidth={true}
+      				rows={2}
+				/>
+			</div>
+			<div>
+				<h1>Anything you'd like to do but couldn't?</h1>
+				<TextField
+      				hintText="Type Here"
+					multiLine={true}
+      				rows={2}
+					floatingLabelText="What do you really think..."
+					fullWidth={true}					
+				/>
+			</div>
+			<div>
+				<h1>Any additions/alterations for this project?</h1>
+				<TextField
+      				hintText="Type Here"
+					floatingLabelText="Be honest!"
+					multiLine={true}
+      				rows={2}
+					fullWidth={true}					  
+				/>
+			</div>
+			<div>
+				<h1>Rapid takeaway!</h1>
+				<TextField
+      				hintText="Type Here"
+					floatingLabelText="140 characters or less"
+					multiLine={true}
+      				rows={2}
+					fullWidth={true}	
 				/>
 			</div>
 		</Paper>
