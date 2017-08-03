@@ -4,15 +4,15 @@ import React from 'react';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderRoutes from '../imports/start-up/client/routes/';
-import Layout from '../imports/ui/components/Layout/';
+// import Layout from '../imports/ui/components/Layout/';
 import Comments from '../imports/ui/containers/Comments/';
 
 
 const App = () => (
   <MuiThemeProvider>
-    <Layout>
+    {/* <Layout> */}
       {renderRoutes()}
-    </Layout>
+    {/* </Layout> */}
   </MuiThemeProvider>
 );
 
