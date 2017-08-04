@@ -21,4 +21,4 @@ FormSchema = new SimpleSchema ({
     }
 });
 
-Form.attachSchema( FormSchema );
+// Forms.attachSchema( FormSchema );
