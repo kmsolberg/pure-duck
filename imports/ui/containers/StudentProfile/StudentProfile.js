@@ -1,7 +1,9 @@
 import React from 'react';
+import StudentProfileLayout from '../../components/StudentProfileLayout/';
+
 
 const StudentProfile = () => (
-    <h1>Student Profile!</h1>
+    <StudentProfileLayout />
 );
 
 export default StudentProfile;
