@@ -7,7 +7,7 @@ const styles = {
   }
 };
 
-const ProjectForm = () => (
+const ProjectFormLayout = () => (
     <Paper >
         <h1>Project 1</h1>
         <DropDownMenu value={1}>
@@ -107,4 +107,4 @@ const ProjectForm = () => (
     </Paper>
 )
 
-export default ProjectForm;
+export default ProjectFormLayout;
