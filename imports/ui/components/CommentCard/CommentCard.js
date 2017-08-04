@@ -1,23 +1,22 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 
 import './style.css';
 
 const CommentCard = () => (
     <Card>
         <CardHeader
-        title="Without Avatar"
-        subtitle="Subtitle"
-        actAsExpander={true}
-        showExpandableButton={true}
+            title="Project"
+            subtitle="1 - Boomtown"
+            actAsExpander={true}
+            showExpandableButton={true}
         />
         <CardText expandable={true}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+        The concept is interesting and the finished site looks pretty cool, but the filtering was really hard to figure out and I don't feel like I fully understand how we did it!
         </CardText>
+        <IconButton iconClassName="muidocs-icon-custom-github" />
     </Card>
 )
 
