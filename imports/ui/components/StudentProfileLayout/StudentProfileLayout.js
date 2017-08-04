@@ -1,12 +1,15 @@
 import React from 'react';
 import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
+import { Link } from 'react-router-dom';
 
 
 const StudentProfileLayout = () => (
     <div>
         <Paper>
             <h1>What do you want to review?</h1>
-            <RaisedButton label="Project" primary={true} />
+            <Link to="/submit">
+                <RaisedButton label="Project" primary={true} />
+            </Link>
             <RaisedButton label="Lesson" primary={true} />
             <RaisedButton label="Topic" primary={true} />
         </Paper>
