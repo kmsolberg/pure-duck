@@ -6,9 +6,11 @@ const Layout = ({ children }) => (
         <div className="headerWarpper" >
             <Header className="headerClass" />
         </div>
+        <div className="inlayout">
         {children}
+        </div>
         <span className="copyright">
-            {<h1>© 2017 Boomtown Corp. All Rights Reserved</h1>}
+            {<h1>© 2017 KBE Corp. All Rights Reserved</h1>}
         </span>
     </div>
 );

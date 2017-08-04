@@ -1,1 +1,11 @@
+.headerWrapper :nth-child(1){
+    height:500px;
+}
 
+.redlogo {
+    height: 30px;
+}
+
+.appbar {
+    background: #e1231a !important
+}
