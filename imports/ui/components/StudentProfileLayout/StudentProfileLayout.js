@@ -7,10 +7,12 @@ const StudentProfileLayout = () => (
     <div>
         <Paper>
             <h1>What do you want to review?</h1>
-            <Link to="/submit">
+            <Link to="/projects">
                 <RaisedButton label="Project" primary={true} />
             </Link>
-            <RaisedButton label="Lesson" primary={true} />
+            <Link to="/lessons">            
+                <RaisedButton label="Lesson" primary={true} />
+            </Link>            
             <RaisedButton label="Topic" primary={true} />
         </Paper>
         <Paper >
