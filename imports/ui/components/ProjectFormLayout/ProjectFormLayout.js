@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup } from 'material-ui';
+import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
 
 const styles = {
   radioButton: {
@@ -104,6 +104,7 @@ const ProjectFormLayout = () => (
                 fullWidth={true}	
             />
         </div>
+        <RaisedButton label="Submit" secondary={true} fullWidth={true} />
     </Paper>
 )
 
