@@ -20,7 +20,7 @@ const ProjectFormLayout = () => (
         <div>
             <h1>How well do you think you did?</h1>
             <h3>( 1-poorly, 5-well )</h3>
-            <RadioButtonGroup name="oneToFive">
+            <RadioButtonGroup valueSelected={this.state.valueSelected} onChange={this.handleChange} name="scaleOneToFive">
                 <RadioButton
                     value="1"
                     label="1"
