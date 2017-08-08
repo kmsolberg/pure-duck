@@ -8,8 +8,8 @@ import './style.css';
 const CommentCard = ({form}) => (
     <Card>
         <CardHeader
-            title={form.title}
-            subtitle="1 - Boomtown"
+            title="Project"
+            subtitle={form.title}
         />
         <CardText>
         The concept is interesting and the finished site looks pretty cool, but the filtering was really hard to figure out and I don't feel like I fully understand how we did it!
