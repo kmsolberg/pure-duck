@@ -2,7 +2,7 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 
-import './style.css';
+import './stgit syle.css';
 
 const style = {
     height: 100,

@@ -1,0 +1,6 @@
+ .theOneAbovePaper :nth-child(1){
+    width: 75% !important;
+} 
+
+.testname :nth-child(1) {
+}
