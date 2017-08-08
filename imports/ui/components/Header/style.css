@@ -7,5 +7,15 @@
 }
 
 .appbar {
-    background: #e1231a !important
+    background: #e1231a !important;
+}
+
+.appbar :nth-child(1) {
+    /* line-height: 0 !important; */
+    display: flex;
+    align-items: center;
+}
+
+.logoutbutton {
+    line-height: initial;
 }
