@@ -1,3 +1,13 @@
 .navlinks {
     display: flex;
 }
+
+.copyright {
+    display: flex;
+    justify-content: center;
+}
+
+.copyright h1 {
+    position: relative;
+    bottom: 0;
+}

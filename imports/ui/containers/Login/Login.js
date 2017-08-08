@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import './style.css';
 
@@ -13,21 +14,27 @@ const style = {
 };
 
 const Login = () => (
-    <div className="theOneAbovePaper">
-        <Paper  className="loginwrapper" style={style} zDepth={1}>
+
+
+    <div className="loginformwrapper">
+        <Paper className="loginfields" style={style} zDepth={1}>
+        <h1 className="loginbanner">Please login:</h1>
+            
+            <h2>Username:</h2>
             <TextField
                 className="username"
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                hintText="Please Enter Your Username"
                 floatingLabelFixed={true}
             />
-
-             <TextField
+            <h2>Password:</h2>
+            <TextField
                 className="password"
-                hintText="Hint Text"
-                floatingLabelText="Fixed Floating Label Text"
+                hintText="Please Enter Your Password"
                 floatingLabelFixed={true}
             />
+            <RaisedButton className="enterButton" type="submit">
+                <h1>Enter</h1>
+            </RaisedButton>
         </Paper>
     </div>
 );
