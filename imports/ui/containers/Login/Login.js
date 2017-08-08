@@ -14,9 +14,16 @@ const style = {
 
 const Login = () => (
     <div className="theOneAbovePaper">
-        <Paper  className="ffs" style={style} zDepth={1}>
+        <Paper  className="loginwrapper" style={style} zDepth={1}>
             <TextField
-                className="testname"
+                className="username"
+                hintText="Hint Text"
+                floatingLabelText="Fixed Floating Label Text"
+                floatingLabelFixed={true}
+            />
+
+             <TextField
+                className="password"
                 hintText="Hint Text"
                 floatingLabelText="Fixed Floating Label Text"
                 floatingLabelFixed={true}
