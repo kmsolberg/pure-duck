@@ -1,6 +1,14 @@
- .theOneAbovePaper :nth-child(1){
+ /* .theOneAbovePaper :nth-child(1){
     width: 75% !important;
-} 
+     height: 100%; 
+}  */
 
-.testname :nth-child(1) {
+.loginwrapper {
+    height: 100% !important;
+    width: 80% !important;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.username :nth-child(1) {
 }

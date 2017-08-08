@@ -105,9 +105,51 @@ const ProjectFormLayout = () => (
                     fullWidth={true}	
                 />
             </div>
-            <RaisedButton label="Submit" type="submit" fullWidth={true} primary={true} />
-        </Paper>
-    </form>
+                
+            </RadioButtonGroup>
+        </div>
+        <div>
+            <h1>What did you get stuck on?</h1>
+            <TextField
+                hintText="Type Here"
+                floatingLabelText="You know..."
+                multiLine={true}
+                fullWidth={true}
+                rows={2}
+            />
+        </div>
+        <div>
+            <h1>Anything you'd like to do but couldn't?</h1>
+            <TextField
+                hintText="Type Here"
+                multiLine={true}
+                rows={2}
+                floatingLabelText="What do you really think..."
+                fullWidth={true}					
+            />
+        </div>
+        <div>
+            <h1>Any additions/alterations for this project?</h1>
+            <TextField
+                hintText="Type Here"
+                floatingLabelText="Be honest!"
+                multiLine={true}
+                rows={2}
+                fullWidth={true}					  
+            />
+        </div>
+        <div>
+            <h1>Rapid takeaway!</h1>
+            <TextField
+                hintText="Type Here"
+                floatingLabelText="140 characters or less"
+                multiLine={true}
+                rows={2}
+                fullWidth={true}	
+            />
+        </div>
+        <RaisedButton label="Submit" secondary={true} fullWidth={true} />
+    </Paper>
 )
 
 export default ProjectFormLayout;
