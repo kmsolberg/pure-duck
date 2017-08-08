@@ -5,7 +5,7 @@ import ProjectForm from './ProjectForm';
 class ProjectFormContainer extends Component {
     render () {
         return (
-            <ProjectForm />
+            <ProjectForm projectFormData={this}/>
         )
     }
 }
