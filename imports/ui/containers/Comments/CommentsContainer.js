@@ -17,9 +17,11 @@ class CommentsContainer extends Component {
 
     render () {
         return (
-            this.props.forms.map((form) => {
-                <Comments />
-            })
+            <div className="commentCards">
+                {this.props.forms.map((form) => {
+                    <Comments />
+                })}
+            </div>
         )
     }
 }
