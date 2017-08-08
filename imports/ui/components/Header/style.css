@@ -1,11 +1,13 @@
-.headerWrapper :nth-child(1){
-    height:500px;
-}
-
 .redlogo {
     height: 30px;
 }
 
 .appbar {
-    background: #e1231a !important
+    background: #e1231a !important;
+    min-width: 565px;
+}
+
+.appbar :nth-child(1){
+    display: flex;
+    align-items: center;
 }

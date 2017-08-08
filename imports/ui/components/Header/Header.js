@@ -12,24 +12,6 @@ const Header = () => (
             <img className="redlogo" src="../../../..//images/RED-Logos-RGB-03-cropped-1.svg" />
         }
     >
-        <a href="/comments">
-            <p>comments</p>
-        </a>
-        <a href="/signup">
-            <p>signup</p>
-        </a>
-        <a href="/login">
-            <p>login</p>
-        </a>
-        <a href="/submit">
-            <p>submit</p>
-        </a>
-        <a href="/students">
-            <p>students</p>
-        </a>
-        <a href="/instructor">
-            <p>instructor</p>
-        </a>
     </AppBar>
 );
 
