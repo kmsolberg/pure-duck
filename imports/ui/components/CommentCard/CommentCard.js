@@ -5,10 +5,10 @@ import IconButton from 'material-ui/IconButton';
 
 import './style.css';
 
-const CommentCard = () => (
+const CommentCard = ({form}) => (
     <Card>
         <CardHeader
-            title="Project"
+            title={form.title}
             subtitle="1 - Boomtown"
         />
         <CardText>
