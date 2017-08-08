@@ -2,9 +2,9 @@ import React from 'react';
 import ProjectFormLayout from '../../components/ProjectFormLayout/'
 
 
-const ProjectForm = () => (
+const ProjectForm = ({ projectFormData }) => (
     <div>
-		<ProjectFormLayout />
+		<ProjectFormLayout projectFormData= { projectFormData } />
 	</div>
 );
 
