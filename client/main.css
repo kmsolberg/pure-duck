@@ -4,4 +4,5 @@ body {
     background-size: 100rem;
     background-repeat: no-repeat;
     color: turquoise;
+    height: 100vh;
 }

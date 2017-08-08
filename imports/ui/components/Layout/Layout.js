@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
             <Header className="headerClass" />
         </div>
         <div className="inlayout">
-            <div className="navlinks">
+            {/* <div className="navlinks">
                 <a href="/comments">
                     <p>comments</p>
                 </a>
@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
                 <a href="/instructor">
                     <p>instructor</p>
                 </a>
-            </div>
+            </div> */}
             {children}
         </div>
         <span className="copyright">

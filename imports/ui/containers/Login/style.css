@@ -3,12 +3,50 @@
      height: 100%; 
 }  */
 
-.loginwrapper {
-    height: 100% !important;
-    width: 80% !important;
-    display: flex;
-    flex-wrap: wrap;
+.loginbanner {
+    margin: 1.5rem 0 !important;
 }
 
-.username :nth-child(1) {
+.loginformwrapper {
+    
+}
+
+.loginfields {
+    /* padding: 2rem; */
+    height: 100% !important;
+    width: auto !important;
+    max-width: 700px !important;
+    min-width: 350px !important; 
+    text-align: left !important; 
+}
+
+.username {
+    min-width: 275px !important;
+    margin-bottom: 0;
+}
+
+.password {
+    min-width: 275px !important;  
+    margin-bottom: 0;  
+}
+
+.loginfields h2 {
+    margin-bottom: 0 !important;
+}
+
+.enterButton {
+    margin: 0 50px !important;
+    height: 100%;
+}
+
+.enterButton button {
+    height: 100% !important;
+    
+}
+
+.enterButton h1 {
+    color: blue;
+    margin: 0 !important;
+    /* height: 30px; */
+    width: 275px;
 }
