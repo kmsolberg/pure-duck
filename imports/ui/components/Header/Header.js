@@ -30,8 +30,6 @@ const Header = () => (
             label="Logout"
             style={style}
         />
-
-
     </AppBar>
 );
 
