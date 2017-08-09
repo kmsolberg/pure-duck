@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Forms } from '../../../api/forms.js';
@@ -17,9 +17,9 @@ InstructorProfileContainer.defaultProps = {
     forms: []
 }
 
-// InstructorProfileContainer.propTypes = {
-//     forms: PropTypes.array.isRequired
-// };
+InstructorProfileContainer.propTypes = {
+    forms: PropTypes.array.isRequired
+};
 
 export default InstructorProfileContainer = createContainer(() => {
     return {

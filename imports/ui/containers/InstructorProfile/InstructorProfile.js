@@ -1,7 +1,9 @@
 import React from 'react';
 
-const InstructorProfile = () => (
-    <h1>INSTRUCTORS ARE THE BOMB</h1>
+import ReviewCard from '../../components/ReviewCardList/';
+
+const InstructorProfile = ({forms}) => (
+    <ReviewCard forms={forms} />
 );
 
 export default InstructorProfile;

@@ -9,18 +9,18 @@ const styles = {
 
 const LessonFormLayout = () => (
     <Paper >
-        <h1>Lesson 1</h1>
-        <DropDownMenu value={1}>
-            <MenuItem value={1} primaryText="Never" />
-            <MenuItem value={2} primaryText="Every Night" />
-            <MenuItem value={3} primaryText="Weeknights" />
-            <MenuItem value={4} primaryText="Weekends" />
-            <MenuItem value={5} primaryText="Weekly" />
-        </DropDownMenu>
+        <h1>Review Lesson</h1>
+        <h3>Which day are you reviewing?</h3>
+         <DropDownMenu value={1}>
+            <MenuItem value={moment()} primaryText="Today" />                       
+            <MenuItem value={moment().subtract(1, 'day')} primaryText={moment().subtract(1, 'day').from()} />
+            <MenuItem value={moment().subtract(2, 'day')} primaryText={moment().subtract(2, 'day').from()} />
+            <MenuItem value={moment().subtract(3, 'day')} primaryText={moment().subtract(3, 'day').from()} />            
+        </DropDownMenu> 
         <div>
             <h1>How well do you think you did?</h1>
             <h3>( 1-poorly, 5-well )</h3>
-            <RadioButtonGroup name="oneToFive">
+            <RadioButtonGroup name="lesson-1">
                 <RadioButton
                     value="1"
                     label="1"
@@ -49,7 +49,7 @@ const LessonFormLayout = () => (
             </RadioButtonGroup>
         </div>
         <div>
-            <h1>Do you feel like the lessons built toward the Lesson?</h1>
+            <h1>Do you think the lessons adequately prepared you for the lab?</h1>
             <RadioButtonGroup name="trueOrFalse">
                 <RadioButton
                         value={true}
@@ -89,6 +89,16 @@ const LessonFormLayout = () => (
             <TextField
                 hintText="Type Here"
                 floatingLabelText="Be honest!"
+                multiLine={true}
+                rows={2}
+                fullWidth={true}					  
+            />
+        </div>
+        <div>
+            <h1>One question you wanted to as today but couldn't?</h1>
+            <TextField
+                hintText="Type Here"
+                floatingLabelText="What do you really think?"
                 multiLine={true}
                 rows={2}
                 fullWidth={true}					  
