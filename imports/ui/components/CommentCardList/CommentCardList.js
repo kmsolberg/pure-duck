@@ -3,7 +3,7 @@ import React from 'react';
 import CommentCard from '../CommentCard/';
 
 const CommentCardList = ({forms}) => (
-    <div>
+    <ul>
         {forms.map((form) =>
             <CommentCard 
                 key={form._id}
@@ -11,7 +11,7 @@ const CommentCardList = ({forms}) => (
             />
         )}
 
-    </div>
+    </ul>
 );
 
 export default CommentCardList;

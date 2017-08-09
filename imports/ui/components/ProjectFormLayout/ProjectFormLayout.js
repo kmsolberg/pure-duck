@@ -9,7 +9,7 @@ const styles = {
 
 const ProjectFormLayout = () => (
     <Paper>
-        <h1>Project 1</h1>
+        <h1>Project</h1>
         <DropDownMenu value={1}>
             <MenuItem value={1} primaryText="Never" />
             <MenuItem value={2} primaryText="Every Night" />
