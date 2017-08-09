@@ -51,5 +51,14 @@ Meteor.methods({
         input4_takeaway: input4
     })
   },
+  'forms.showAllReviews'() {
+    // check(taskId, String)
+
+    Forms.find();
+    // if (task.private && task.owner !== Meteor.userId()) {
+    //   // If the task is private, make sure only the owner can delete it
+    //   throw new Meteor.Error('not-authorized');
+    // }
+  },
 })
 

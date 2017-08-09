@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-import ReactDOM from 'react-dom';
 import { Forms } from '../../../api/forms';
 
 import ProjectForm from './ProjectForm';
@@ -15,7 +14,7 @@ class ProjectFormContainer extends Component {
             title: 'Project 1',
             value: 'Sense of reality',
             q2: 'Nipple Assault',
-            input3: 'DingDing',
+            input3: 'Anyone could see my unicorn',
             input4: 'Pull it Out'
         };
     }
@@ -24,7 +23,7 @@ class ProjectFormContainer extends Component {
         // if (this.state.value) {
             const title = this.state.title;
             const oneToFiveRadio = parseInt(this.state.oneToFiveRadio);
-            const trueOrFalse = (this.state.trueOrFalse === "true" );
+            const trueOrFalse = this.state.trueOrFalse;
             const input1 = this.state.value;
             const input2= this.state.q2;
             const input3= this.state.input3;
