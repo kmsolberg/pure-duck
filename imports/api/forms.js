@@ -1,6 +1,7 @@
-import { Mongo } from 'meteor/mongo';
+// import { Mongo } from 'meteor/mongo';
+// import SimpleSchema from 'simpl-schema';
  
-export const Forms = new Mongo.Collection('forms');
+// export const Forms = new Mongo.Collection('forms');
 
 // FormSchema = new SimpleSchema ({
 //     "title": {

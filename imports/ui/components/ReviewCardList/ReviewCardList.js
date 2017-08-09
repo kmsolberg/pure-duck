@@ -1,17 +1,16 @@
 import React from 'react';
 
-import CommentCard from '../CommentCard/';
+import ReviewCard from '../ReviewCard/';
 
-const CommentCardList = ({forms}) => (
+const ReviewCardList = ({forms}) => (
     <ul>
         {forms.map((form) =>
-            <CommentCard 
+            <ReviewCard
                 key={form._id}
                 form={form}
             />
         )}
-
     </ul>
 );
 
-export default CommentCardList;
+export default ReviewCardList;

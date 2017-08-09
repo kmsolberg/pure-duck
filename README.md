@@ -18,3 +18,9 @@
 - Webpack
 - VS code
 - Moment
+
+### How to connect to Cloud DB
+MONGO_URL=mongo://pduser:password@ds059644.mlab.com59644/pureduckdb meteor
+### How to add to the Cloud DB
+1 - Run mongo from terminal
+2 - From a second terminal run: mongo ds059644.mlab.com:59644/pureduckdb -u pduser -p password
