@@ -1,0 +1,17 @@
+
+.radioButton {
+    margin-bottom: 16px;
+    width: 50px;
+}
+.RadioButtonGroupStyle {
+    display: 'flex';
+    flex-direction: 'row';
+    justify-content: 'space-around';
+}
+.Form {
+    display: 'flex';
+    justify-content: 'center';
+}
+.Paper {
+    width: 700px
+}

@@ -24,9 +24,34 @@ export const Forms = new Mongo.Collection('forms');
 
 // Forms.attachSchema( FormSchema );
 
+// Allow Client to do these things only to this collection...
 Meteor.methods({
-    
-    'todos.filterCohort' (value) {
-        Forms.find({cohort: value}).fetch()
-    }
+  // add profile form data to db
+  'forms.addProfileFormData' (title, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4) {
+    // check(text, String)
+    // if (!this.userId) {
+    //   throw new Meteor.Error('todos.toggleComplete.not-authorized')
+    //     'Your are not authorized to update todo for others'
+    // }
+    Forms.insert({
+        title: title,     
+        // TODO: add data format
+        //   owner: this.userId
+        owner: `Brian :)`,
+        createdAt: new Date().toLocaleTimeString(),
+        // class
+        // cohort
+        // form
+        oneToFiveRadio: oneToFiveRadio,
+        trueOrFalse: trueOrFalse,
+        input1: input1,
+        input2: input2,
+        input3: input3,
+        input4_takeaway: input4
+    })
+  },
+  
+  'forms.filterCohort' (value) {
+       Forms.find({cohort: value}).fetch()
+  }
 })
