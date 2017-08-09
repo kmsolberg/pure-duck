@@ -9,7 +9,7 @@ import './style.css';
 class InstructorProfileContainer extends Component {
 
     filterCohort = (cohort) => {
-        Meteor.call('todos.filterCohort', cohort);
+        Meteor.call('forms.filterCohort', cohort);
         return filterForms;
     }
 
