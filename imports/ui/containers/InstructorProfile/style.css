@@ -1,0 +1,19 @@
+.instructor-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+.instructor-select {
+    flex: 1 1 45%;
+}
+
+.review-cards {
+    flex: 1 1 45%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+}

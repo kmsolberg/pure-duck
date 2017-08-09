@@ -3,11 +3,22 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Forms } from '../../../api/forms.js';
 import InstructorProfile from './InstructorProfile';
+import ReviewSelector from '../../components/ReviewSelector';
 
+import './style.css';
 class InstructorProfileContainer extends Component {
     render () {
         return (
-            <InstructorProfile forms={this.props.forms} />
+            <div className="instructor-container">
+                <div className="instructor-select">
+                    <h2>Select reviews:</h2>
+                    <ReviewSelector />
+                </div>
+                <InstructorProfile 
+                    forms={this.props.forms} 
+                    className="review-cards"
+                />
+            </div>
         )
     }
 }
