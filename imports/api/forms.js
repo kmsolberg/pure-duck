@@ -26,7 +26,7 @@ export const Forms = new Mongo.Collection('forms');
 
 Meteor.methods({
     
-    'todos.filterCohort' (value) {
+    'forms.filterCohort' (value) {
         Forms.find({cohort: value}).fetch()
     }
 })
