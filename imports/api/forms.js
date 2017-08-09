@@ -23,3 +23,10 @@ export const Forms = new Mongo.Collection('forms');
 // });
 
 // Forms.attachSchema( FormSchema );
+
+Meteor.methods({
+    
+    'todos.filterCohort' (value) {
+        Forms.find({cohort: value}).fetch()
+    }
+})

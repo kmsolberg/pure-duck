@@ -7,12 +7,20 @@ import ReviewSelector from '../../components/ReviewSelector';
 
 import './style.css';
 class InstructorProfileContainer extends Component {
+
+    filterCohort = (cohort) => {
+        Meteor.call('todos.filterCohort', cohort);
+        return filterForms;
+    }
+
     render () {
         return (
             <div className="instructor-container">
                 <div className="instructor-select">
                     <h2>Select reviews:</h2>
-                    <ReviewSelector />
+                    <ReviewSelector 
+                        onChangeAction={this.filterCohort}
+                    />
                 </div>
                 <InstructorProfile 
                     forms={this.props.forms} 
