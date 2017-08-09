@@ -12,20 +12,29 @@ class ProjectFormContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'hi',
-            q2: 'Dog'
+            title: 'Project 1',
+            value: 'Sense of reality',
+            q2: 'Nipple Assault',
+            input3: 'DingDing',
+            input4: 'Pull it Out'
         };
     }
     handleSubmit = (event) => {
         event.preventDefault();
         // if (this.state.value) {
-            const des = this.state.value;
-            const input1= this.state.q2; 
-            Meteor.call('forms.addProfileFormData', des, input1)
+            const title = this.state.title;
+            const oneToFiveRadio = parseInt(this.state.oneToFiveRadio);
+            const trueOrFalse = (this.state.trueOrFalse === "true" );
+            const input1 = this.state.value;
+            const input2= this.state.q2;
+            const input3= this.state.input3;
+            const input4= this.state.input4;
+            Meteor.call('forms.addProfileFormData', title, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4)
         // }
         // Hint: This will reset the value on each input
         // this.state.value = '';
     };
+    
 
     handleChange = (event) => {
         event.preventDefault();
@@ -37,11 +46,6 @@ class ProjectFormContainer extends Component {
         });
     };
 
-    // handleChangeInput1 = (event) => {
-    //     event.preventDefault();        
-    //     this.setState({
-    //     });
-    // };
 
     render () {
         return (
@@ -50,19 +54,22 @@ class ProjectFormContainer extends Component {
 
             <form name="profileForm" className='Form' onSubmit={this.handleSubmit} >
                 <Paper className='Paper'>
-                    {/* <h1>Project 1</h1>
-                    <DropDownMenu value={1}>
+                    <h1 name="title">{this.state.title}</h1>
+                    {/* <DropDownMenu value={1}>
                         <MenuItem value={1} primaryText="Never" />
                         <MenuItem value={2} primaryText="Every Night" />
                         <MenuItem value={3} primaryText="Weeknights" />
                         <MenuItem value={4} primaryText="Weekends" />
                         <MenuItem value={5} primaryText="Weekly" />
-                    </DropDownMenu>
+                    </DropDownMenu> */}
                     <div>
                         <h1>How well do you think you did?</h1>
                         <h3>( 1-poorly, 5-well )</h3>
-                        <RadioButtonGroup name="oneToFive" 
-                        className='RadioButtonGroupclassName' >
+                        <RadioButtonGroup 
+                            name="oneToFiveRadio" 
+                            onChange={this.handleChange} 
+                            valueSelected={this.state.oneToFiveRadio} 
+                        >
                             <RadioButton
                                 value="1"
                                 label="1"
@@ -92,19 +99,23 @@ class ProjectFormContainer extends Component {
                     </div>
                     <div>
                         <h1>Do you feel like the lessons built toward the project?</h1>
-                        <RadioButtonGroup name="trueOrFalse">
+                        <RadioButtonGroup 
+                            name="trueOrFalse"
+                            onChange={this.handleChange} 
+                            valueSelected={this.state.trueOrFalse} 
+                        >
                             <RadioButton
-                                value={true}
+                                value="true"
                                 label="Yes"
                                 className='radioButton'
                             />
                             <RadioButton
-                                value={false}
+                                value="false"
                                 label="No"
                                 className= 'radioButton'
                             />
                         </RadioButtonGroup>
-                    </div> */}
+                    </div> 
                     <div>
                         <h1>What did you get stuck on?</h1>
                         <TextField
@@ -130,9 +141,12 @@ class ProjectFormContainer extends Component {
                             fullWidth={true}
                         />
                     </div>
-                    {/* <div>
+                    <div>
                         <h1>Any additions/alterations for this project?</h1>
                         <TextField
+                            name="input3"                          
+                            value={this.state.input3}
+                            onChange={this.handleChange}  
                             hintText="Type Here"
                             floatingLabelText="Be honest!"
                             multiLine={true}
@@ -140,16 +154,19 @@ class ProjectFormContainer extends Component {
                             fullWidth={true}
                         />
                     </div>
-                    <div>
+                     <div>
                         <h1>Rapid takeaway!</h1>
                         <TextField
+                            name="input4"                          
+                            value={this.state.input4}
+                            onChange={this.handleChange}  
                             hintText="Type Here"
                             floatingLabelText="140 characters or less"
                             multiLine={true}
                             rows={2}
                             fullWidth={true}
                         />
-                    </div> */}
+                    </div> 
                     <RaisedButton label="Submit" secondary={true} fullWidth={true} type="submit"/>
                 </Paper >
             </form>
@@ -160,7 +177,6 @@ class ProjectFormContainer extends Component {
 // export default ProjectFormContainer;
 export default createContainer(() => {
   Meteor.subscribe('forms');
-
   return{
     forms: Forms.find().fetch()
   }

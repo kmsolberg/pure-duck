@@ -1,7 +1,7 @@
-// import { Mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
 // import SimpleSchema from 'simpl-schema';
  
-// export const Forms = new Mongo.Collection('forms');
+export const Forms = new Mongo.Collection('forms');
 
 // FormSchema = new SimpleSchema ({
 //     "title": {
@@ -28,26 +28,27 @@
 // Allow Client to do these things only to this collection...
 Meteor.methods({
   // add profile form data to db
-  'forms.addProfileFormData' (des, input1) {
+  'forms.addProfileFormData' (title, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4) {
     // check(text, String)
     // if (!this.userId) {
     //   throw new Meteor.Error('todos.toggleComplete.not-authorized')
     //     'Your are not authorized to update todo for others'
     // }
     Forms.insert({
-        title: "What did you get stuck on?",     
+        title: title,     
         // TODO: add data format
         //   owner: this.userId
-        // createOn
-        description: des,
-        // classcohort
+        owner: `Brian :)`,
+        createdAt: new Date().toLocaleTimeString(),
+        // class
+        // cohort
         // form
-        input1: input1
-        // input2
-        // input3
-        // input4
-        // input5
-        // takeaway
+        oneToFiveRadio: oneToFiveRadio,
+        trueOrFalse: trueOrFalse,
+        input1: input1,
+        input2: input2,
+        input3: input3,
+        input4_takeaway: input4
     })
   },
 })
