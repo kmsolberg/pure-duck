@@ -1,11 +1,11 @@
-// import React from 'react';
-// import ProjectFormLayout from '../../components/ProjectFormLayout/'
+import React from 'react';
+import ProjectFormLayout from '../../components/ProjectFormLayout/'
 
 
-// const ProjectForm = ({ projectFormData }) => (
-//     <div>
-// 		<ProjectFormLayout projectFormData= { projectFormData } />
-// 	</div>
-// );
+const ProjectForm = ({ handleChange, handleSubmit, state }) => (
+    <div>
+		<ProjectFormLayout handleChange={handleChange} handleSubmit={handleSubmit} state={state} />
+	</div>
+);
 
-// export default ProjectForm;
+export default ProjectForm;
