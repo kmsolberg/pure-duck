@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware } from 'redux';
-import { combineForms } from 'react-redux-form';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const initialUserState = {
-  firstName: '',
-  lastName: ''
-};
+import logger from 'redux-logger';
 
-const store = createStore(combineForms({
-  user: initialUserState,
-}));
+import reducers from './combine-reducers';
 
-export default store;
+export default createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(
+        logger,
+    ))
+);
