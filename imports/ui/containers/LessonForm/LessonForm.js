@@ -2,9 +2,9 @@ import React from 'react';
 import LessonFormLayout from '../../components/LessonFormLayout/'
 
 
-const LessonForm = ({ handleChange, handleSubmit, state }) => (
+const LessonForm = ({ handleSubmit }) => (
     <div>
-		<LessonFormLayout handleChange={handleChange} handleSubmit={handleSubmit} state={state} />
+		<LessonFormLayout handleSubmit={handleSubmit} />
 	</div>
 );
 

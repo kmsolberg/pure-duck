@@ -95,7 +95,7 @@ const webDevProjects = [
     'Community Project'
 ];
 
-let ReviewSelector = ({ onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue }) => {
+let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue }) => {
 
     return (
         <div>

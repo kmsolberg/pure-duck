@@ -10,26 +10,26 @@ import ProjectForm from './ProjectForm';
 class ProjectFormContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'Project 1',
-            value: 'Sense of reality',
-            q2: 'Nipple Assault',
-            input3: 'Anyone could see my unicorn',
-            input4: 'Pull it Out',
-            form: 'Project'
-        };
+        // this.state = {
+        //     title: 'Project 1',
+        //     value: 'Sense of reality',
+        //     q2: 'Nipple Assault',
+        //     input3: 'Anyone could see my unicorn',
+        //     input4: 'Pull it Out',
+        //     form: 'Project'
+        // };
     }
     handleSubmit = (event) => {
         event.preventDefault();
         // if (this.state.value) {
-            const title = this.state.title;
-            const form = this.state.form;
-            const oneToFiveRadio = parseInt(this.state.oneToFiveRadio);
-            const trueOrFalse = this.state.trueOrFalse;
-            const input1 = this.state.value;
-            const input2= this.state.q2;
-            const input3= this.state.input3;
-            const input4= this.state.input4;
+            // const title = this.props.values.values.title;
+            const form = this.props.values.values.form;
+            // const oneToFiveRadio = parseInt(this.state.oneToFiveRadio);
+            // const trueOrFalse = this.state.trueOrFalse;
+            // const input1 = this.state.value;
+            // const input2= this.state.q2;
+            // const input3= this.state.input3;
+            // const input4= this.state.input4;
             Meteor.call('forms.addProfileFormData', title, form, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4)
         // }
         // Hint: This will reset the value on each input
@@ -58,6 +58,11 @@ ProjectFormContainer.propTypes = {
   forms: PropTypes.array.isRequired,
 };
 
+function mapStateToProps(state) {
+    return {
+        values: state.form.forms,
+    };
+}
 
 export default createContainer(() => {
     Meteor.subscribe('forms');

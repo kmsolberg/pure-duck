@@ -22,9 +22,9 @@ function disableWeekends(date) {
 
 const required = value => (value == null ? 'Required' : undefined);
 
-let LessonFormLayout = ({ handleChange, handleSubmit, pristine, submitting, reset }) => (
+let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
     <Paper >
-        <form name="profileForm" className='Form' onSubmit={() => handleSubmit(event)} >
+        <form name="Lesson" className='Form' onSubmit={handleSubmit} >
             <h3>Lessons</h3>
             <div>
                 <Field
@@ -108,7 +108,7 @@ let LessonFormLayout = ({ handleChange, handleSubmit, pristine, submitting, rese
                 />
             </div>
             <div>
-                <button type="submit" disabled={submitting}>Submit</button>
+                <button type="submit" disabled={pristine || submitting}>Submit</button>
                 <button
                     type="button"
                     disabled={pristine || submitting}
@@ -122,7 +122,7 @@ let LessonFormLayout = ({ handleChange, handleSubmit, pristine, submitting, rese
 )
 
 LessonFormLayout = reduxForm({
-    form: 'lessonForm'
+    form: 'forms'
 })(LessonFormLayout)
 
 export default LessonFormLayout;
