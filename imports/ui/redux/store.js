@@ -13,7 +13,7 @@ export default () => {
                     combineReducers,
                     composeWithDevTools(
                         applyMiddleware(
-                            thunk,
+                            // thunk,
                             logger
                         )
                     )
@@ -21,7 +21,7 @@ export default () => {
 
     Tracker.autorun(() => {
         store.dispatch({
-            // type: LOAD_FORMS,
+            type: 'LOAD_FORMS',
             form: Forms.find().fetch(),
         });
     });
