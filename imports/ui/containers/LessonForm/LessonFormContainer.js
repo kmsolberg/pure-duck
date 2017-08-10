@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
+import PropTypes from 'prop-types';
 
 import LessonForm from './LessonForm';
 
@@ -52,6 +53,11 @@ class LessonFormContainer extends Component {
         )
     }
 }
+
+LessonFormContainer.propTypes = {
+  forms: PropTypes.array.isRequired,
+};
+
 
 export default createContainer(() => {
     Meteor.subscribe('forms');
