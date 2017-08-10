@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
 
 import SelectField from 'material-ui/SelectField';
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 
 const style = {
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
 };
 
 const cohortSelect = ({
@@ -18,14 +19,14 @@ const cohortSelect = ({
     meta: { touched, error },
     children,
     ...custom
-}) => 
+}) =>
     <SelectField
         floatingLabelText={label}
         errorText={touched && error}
         {...input}
         onChange={(event, index, value) => input.onChange(value)}
         children={children}
-        {...custom}  
+        {...custom}
     />
 
 const classSelect = ({
@@ -34,14 +35,14 @@ const classSelect = ({
     meta: { touched, error },
     children,
     ...custom
-}) => 
+}) =>
     <SelectField
         floatingLabelText={label}
         errorText={touched && error}
         {...input}
         onChange={(event, index, value) => input.onChange(value)}
         children={children}
-        {...custom}  
+        {...custom}
     />
 
 const formSelect = ({
@@ -50,14 +51,14 @@ const formSelect = ({
     meta: { touched, error },
     children,
     ...custom
-}) => 
+}) =>
     <SelectField
         floatingLabelText={label}
         errorText={touched && error}
         {...input}
         onChange={(event, index, value) => input.onChange(value)}
         children={children}
-        {...custom}  
+        {...custom}
     />
 
 const topicSelect = ({
@@ -66,17 +67,17 @@ const topicSelect = ({
     meta: { touched, error },
     children,
     ...custom
-}) => 
+}) =>
     <SelectField
         floatingLabelText={label}
         errorText={touched && error}
         {...input}
         onChange={(event, index, value) => input.onChange(value)}
         children={children}
-        {...custom}  
+        {...custom}
     />
 
-const cohorts = [ 7, 8 ];
+const cohorts = [7, 8];
 const appDevProjects = [
     'Boomtown',
     'Meteor',
@@ -94,95 +95,100 @@ const webDevProjects = [
     'Community Project'
 ];
 
-let ReviewSelector = ({onChangeAction, cohortSelectValue, classSelectValue, formSelectValue}) => {
-        
+let ReviewSelector = ({ onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue }) => {
+
     return (
         <div>
             <Paper
-                style={style} 
+                style={style}
                 zDepth={2}
             >
-                <div>
-                    <Field
-                        name="cohortSelect"
-                        component={cohortSelect}
-                        label="Select Cohort"
-                    >
-                        {cohorts.map((cohort) => (
-                            <MenuItem
-                                key={cohort}
-                                primaryText={cohort}
-                                value={cohort}
-                            />
-                        ))}
-                    </Field>
-                </div>
-                {cohortSelectValue &&
+                <form onSubmit={handleSubmit}>
                     <div>
                         <Field
-                            name="classSelect"
-                            component={classSelect}
-                            label="Select a Class"
+                            name="cohortSelect"
+                            component={cohortSelect}
+                            label="Select Cohort"
                         >
-                            <MenuItem value="ADP" primaryText="App Development" />
-                            <MenuItem value="WDP" primaryText="Web Development" />
-                        </Field>
-                    </div>
-                }
-                {classSelectValue &&
-                    <div>
-                        <Field
-                            name="formSelect"
-                            component={formSelect}
-                            label="Select a Form"
-                        >
-                            <MenuItem value="lesson" primaryText="Lesson" />
-                            <MenuItem value="topic" primaryText="Topic" />
-                            <MenuItem value="project" primaryText="Project" />
-                        </Field>
-                    </div>
-                }
-                {formSelectValue === 'project' && classSelectValue === 'ADP' &&
-                    <div>
-                        <Field
-                            name="topicSelect"
-                            component={topicSelect}
-                            label="What reviews do you want to read?"
-                        >
-                            {appDevProjects.map((project) => (
+                            {cohorts.map((cohort) => (
                                 <MenuItem
-                                    key={project}
-                                    primaryText={project}
-                                    value={project}
+                                    key={cohort}
+                                    primaryText={cohort}
+                                    value={cohort}
                                 />
                             ))}
                         </Field>
                     </div>
-                }
-                {formSelectValue === 'project' && classSelectValue === 'WDP' &&
-                    <div>
-                        <Field
-                            name="topicSelect"
-                            component={topicSelect}
-                            label="What reviews do you want to read?"
-                        >
-                            {webDevProjects.map((project) => (
-                                <MenuItem
-                                    key={project}
-                                    primaryText={project}
-                                    value={project}
-                                />
-                            ))}
-                        </Field>
-                    </div>
-                } 
+                    {cohortSelectValue &&
+                        <div>
+                            <Field
+                                name="classSelect"
+                                component={classSelect}
+                                label="Select a Class"
+                            >
+                                <MenuItem value="ADP" primaryText="App Development" />
+                                <MenuItem value="WDP" primaryText="Web Development" />
+                            </Field>
+                        </div>
+                    }
+                    {classSelectValue &&
+                        <div>
+                            <Field
+                                name="formSelect"
+                                component={formSelect}
+                                label="Select a Form"
+                            >
+                                <MenuItem value="lesson" primaryText="Lesson" />
+                                <MenuItem value="topic" primaryText="Topic" />
+                                <MenuItem value="project" primaryText="Project" />
+                            </Field>
+                        </div>
+                    }
+                    {formSelectValue === 'project' && classSelectValue === 'ADP' &&
+                        <div>
+                            <Field
+                                name="topicSelect"
+                                component={topicSelect}
+                                label="What reviews do you want to read?"
+                            >
+                                {appDevProjects.map((project) => (
+                                    <MenuItem
+                                        key={project}
+                                        primaryText={project}
+                                        value={project}
+                                    />
+                                ))}
+                            </Field>
+                        </div>
+                    }
+                    {formSelectValue === 'project' && classSelectValue === 'WDP' &&
+                        <div>
+                            <Field
+                                name="topicSelect"
+                                component={topicSelect}
+                                label="What reviews do you want to read?"
+                            >
+                                {webDevProjects.map((project) => (
+                                    <MenuItem
+                                        key={project}
+                                        primaryText={project}
+                                        value={project}
+                                    />
+                                ))}
+                            </Field>
+                        </div>
+                    }
+                    {topicSelectValue &&
+                        <RaisedButton label="Get the Reviews!" />
+                    }
+                </form>
             </ Paper>
         </div>
     )
 }
 
 ReviewSelector = reduxForm({
-  form: 'reviewSelector'
+    form: 'reviewSelector'
 })(ReviewSelector)
 
 const selector = formValueSelector('reviewSelector')
@@ -191,10 +197,12 @@ ReviewSelector = connect(state => {
     const cohortSelectValue = selector(state, 'cohortSelect')
     const classSelectValue = selector(state, 'classSelect')
     const formSelectValue = selector(state, 'formSelect')
+    const topicSelectValue = selector(state, 'topicSelect')
     return {
         cohortSelectValue,
         classSelectValue,
-        formSelectValue
+        formSelectValue,
+        topicSelectValue
     }
 })(ReviewSelector)
 
