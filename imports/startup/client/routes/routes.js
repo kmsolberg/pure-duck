@@ -24,6 +24,7 @@ const renderRoutes = () => (
       <Route path="/lessons" component={LessonForm} />
       <Route path="/student/:id" component={StudentProfile} />
       <Route path="/instructor/:id" component={InstructorProfile} />
+
     </div>
   </Router>
 );

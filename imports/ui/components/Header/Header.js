@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import './style.css';
@@ -26,6 +27,7 @@ const Header = () => (
             className="logoutbutton"
             label="Logout"
             style={style}
+            onClick={() => Meteor.logout()}
         />
     </AppBar>
 
