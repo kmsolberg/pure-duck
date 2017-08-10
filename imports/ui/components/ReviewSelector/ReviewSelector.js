@@ -44,9 +44,57 @@ const classSelect = ({
         {...custom}  
     />
 
+const formSelect = ({
+    input,
+    label,
+    meta: { touched, error },
+    children,
+    ...custom
+}) => 
+    <SelectField
+        floatingLabelText={label}
+        errorText={touched && error}
+        {...input}
+        onChange={(event, index, value) => input.onChange(value)}
+        children={children}
+        {...custom}  
+    />
 
-let ReviewSelector = ({onChangeAction, cohortSelectValue}) => {
-    const cohorts = [ 7, 8 ];
+const topicSelect = ({
+    input,
+    label,
+    meta: { touched, error },
+    children,
+    ...custom
+}) => 
+    <SelectField
+        floatingLabelText={label}
+        errorText={touched && error}
+        {...input}
+        onChange={(event, index, value) => input.onChange(value)}
+        children={children}
+        {...custom}  
+    />
+
+const cohorts = [ 7, 8 ];
+const appDevProjects = [
+    'Boomtown',
+    'Meteor',
+    'Coding Interview',
+    'r10',
+    'Community Project'
+];
+
+const webDevProjects = [
+    'Aloha',
+    'Instanews',
+    'Pong',
+    'Inhabitent',
+    'Mars Colony',
+    'Community Project'
+];
+
+let ReviewSelector = ({onChangeAction, cohortSelectValue, classSelectValue, formSelectValue}) => {
         
     return (
         <div>
@@ -81,6 +129,53 @@ let ReviewSelector = ({onChangeAction, cohortSelectValue}) => {
                         </Field>
                     </div>
                 }
+                {classSelectValue &&
+                    <div>
+                        <Field
+                            name="formSelect"
+                            component={formSelect}
+                            label="Select a Form"
+                        >
+                            <MenuItem value="lesson" primaryText="Lesson" />
+                            <MenuItem value="topic" primaryText="Topic" />
+                            <MenuItem value="project" primaryText="Project" />
+                        </Field>
+                    </div>
+                }
+                {formSelectValue === 'project' && classSelectValue === 'ADP' &&
+                    <div>
+                        <Field
+                            name="topicSelect"
+                            component={topicSelect}
+                            label="What reviews do you want to read?"
+                        >
+                            {appDevProjects.map((project) => (
+                                <MenuItem
+                                    key={project}
+                                    primaryText={project}
+                                    value={project}
+                                />
+                            ))}
+                        </Field>
+                    </div>
+                }
+                {formSelectValue === 'project' && classSelectValue === 'WDP' &&
+                    <div>
+                        <Field
+                            name="topicSelect"
+                            component={topicSelect}
+                            label="What reviews do you want to read?"
+                        >
+                            {webDevProjects.map((project) => (
+                                <MenuItem
+                                    key={project}
+                                    primaryText={project}
+                                    value={project}
+                                />
+                            ))}
+                        </Field>
+                    </div>
+                } 
             </ Paper>
         </div>
     )
@@ -94,8 +189,12 @@ const selector = formValueSelector('reviewSelector')
 
 ReviewSelector = connect(state => {
     const cohortSelectValue = selector(state, 'cohortSelect')
+    const classSelectValue = selector(state, 'classSelect')
+    const formSelectValue = selector(state, 'formSelect')
     return {
-        cohortSelectValue
+        cohortSelectValue,
+        classSelectValue,
+        formSelectValue
     }
 })(ReviewSelector)
 
