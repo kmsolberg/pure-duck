@@ -19,7 +19,7 @@ const StudentProfileLayout = ({forms}) => (
             <h1>Past reviews...</h1>
             {/* TODO: foreach here for each personal reviews... */}    
             {forms.map((todo, index) => (
-                <Card key={index} className='reviewCard' style={{backgroundColor: 'skyBlue', margin: '10'}}>
+                <Card key={index} className='reviewCard' style={{backgroundColor: 'skyBlue', margin: `25px 0`}}>
                     <CardHeader
                         title={todo.title}
                         style={{color: 'white'}}
