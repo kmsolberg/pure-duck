@@ -2,9 +2,6 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import './style.css';
-// import logo from './redlogo.svg'
-// import RaisedButton from 'material-ui/RaisedButton';
-
 
 const style = {
     margin: 12,
@@ -15,7 +12,7 @@ const Header = () => (
         className="appbar"
         showMenuIconButton={false}
         title={
-            <img className="redlogo" src="../../../..//images/RED-Logos-RGB-03-cropped-1.svg" />
+            <img className="redlogo" src="../../../../images/RED-Logos-RGB-03-cropped-1.svg" />
         }
     >
         <a href="/comments"><p>comments</p></a>
@@ -31,6 +28,8 @@ const Header = () => (
             style={style}
         />
     </AppBar>
+
+
 );
 
 export default Header;

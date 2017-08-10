@@ -1,6 +1,11 @@
 import { render } from 'react-dom';
 import React from 'react';
 
+import './useraccounts-configuration.js';
+
+import './style.css'
+
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 

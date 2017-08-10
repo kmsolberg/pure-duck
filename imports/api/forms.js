@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-// import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'simpl-schema';
  
 export const Forms = new Mongo.Collection('forms');
 
@@ -23,7 +23,6 @@ export const Forms = new Mongo.Collection('forms');
 // });
 
 // Forms.attachSchema( FormSchema );
-
 
 // Allow Client to do these things only to this collection...
 Meteor.methods({
@@ -50,6 +49,7 @@ Meteor.methods({
         input4_takeaway: input4
     })
   },
+
   'forms.showAllReviews'() {
     // check(taskId, String)
 
@@ -59,5 +59,10 @@ Meteor.methods({
     //   throw new Meteor.Error('not-authorized');
     // }
   },
-})
 
+  
+  'forms.filterCohort' (value) {
+       Forms.find({cohort: value}).fetch()
+  }
+
+})
