@@ -20,7 +20,7 @@ injectTapEventPlugin();
 
 const App = () => (
   <MuiThemeProvider>
-    <Provider store={ store }>
+    <Provider store={ store() }>
       <Layout> 
         {renderRoutes()}
       </Layout>
