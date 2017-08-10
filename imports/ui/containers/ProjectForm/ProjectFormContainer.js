@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
+import PropTypes from 'prop-types';
 
 import ProjectForm from './ProjectForm';
-import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
+
 
 
 class ProjectFormContainer extends Component {
@@ -46,7 +47,6 @@ class ProjectFormContainer extends Component {
         });
     };
 
-
     render () {
         return (
             <ProjectForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} state={this.state}/>
@@ -54,7 +54,11 @@ class ProjectFormContainer extends Component {
     }
 }
 
-// export default ProjectFormContainer;
+ProjectFormContainer.propTypes = {
+  forms: PropTypes.array.isRequired,
+};
+
+
 export default createContainer(() => {
     Meteor.subscribe('forms');
     return{

@@ -3,7 +3,7 @@ import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup
 import { Link } from 'react-router-dom';
 
 
-const StudentProfileLayout = ({forms}) => (
+const StudentProfileLayout = ({forms, ReviewCount}) => (
     <div>
         <Paper>
             <h1>What do you want to review?</h1>
@@ -16,15 +16,14 @@ const StudentProfileLayout = ({forms}) => (
             <RaisedButton label="Topic" primary={true} />
         </Paper>
         <Paper >
-            <h1>Past reviews...</h1>
-            {/* TODO: foreach here for each personal reviews... */}    
+            <h1>{ReviewCount} Past {ReviewCount === 1 ? 'Review' : 'Reviews'}...</h1>   
             {forms.map((todo, index) => (
                 <Card key={index} className='reviewCard' style={{backgroundColor: 'skyBlue', margin: `25px 0`}}>
                     <CardHeader
                         title={todo.title}
-                        style={{color: 'white'}}
                     />
                     <CardText style={{color: 'white'}}>
+                        <h5>Form-Type: {todo.form}</h5>
                         <p>Owner: {todo.owner}</p>
                         {/* <p>Created On: {todo.createdAt}</p>  */}
                         <p>scale 1-5: {todo.oneToFiveRadio}</p>
