@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Forms } from '../../../api/forms';
  
 import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
 
 import './style.css';
+
 
 const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
     <form name="profileForm" className='Form' onSubmit={() => handleSubmit(event)} >
@@ -85,7 +85,7 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             <div>
                 <h1>Anything you'd like to do but couldn't?</h1>
                 <TextField
-                    name="q2"                          
+                    name="q2"
                     value={state.q2}
                     onChange={(event) => handleChange(event)}  
                     hintText="Type Here"
@@ -98,7 +98,7 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             <div>
                 <h1>Any additions/alterations for this project?</h1>
                 <TextField
-                    name="input3"                          
+                    name="input3"  
                     value={state.input3}
                     onChange={(event) => handleChange(event)}  
                     hintText="Type Here"
@@ -111,7 +111,7 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
                 <div>
                 <h1>Rapid takeaway!</h1>
                 <TextField
-                    name="input4"                          
+                    name="input4"
                     value={state.input4}
                     onChange={(event) => handleChange(event)}  
                     hintText="Type Here"

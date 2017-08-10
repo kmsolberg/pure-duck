@@ -3,7 +3,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
 
 import ProjectForm from './ProjectForm';
-import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
+
 
 
 class ProjectFormContainer extends Component {
@@ -54,7 +54,6 @@ class ProjectFormContainer extends Component {
     }
 }
 
-// export default ProjectFormContainer;
 export default createContainer(() => {
     Meteor.subscribe('forms');
     return{
