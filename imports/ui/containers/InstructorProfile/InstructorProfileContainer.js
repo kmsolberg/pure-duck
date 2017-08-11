@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Forms } from '../../../api/forms.js';
@@ -40,8 +41,16 @@ InstructorProfileContainer.propTypes = {
     forms: PropTypes.array.isRequired
 };
 
-export default InstructorProfileContainer = createContainer(() => {
+function mapStateToProps(state) {
+    return {
+        values: state.form.reviewSelector,
+    };
+}
+
+InstructorContainer = createContainer(() => {
     return {
         forms: Forms.find({}).fetch(),
     };
 }, InstructorProfileContainer);
+
+export default connect(mapStateToProps)(InstructorContainer)
