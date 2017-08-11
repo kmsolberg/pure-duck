@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
@@ -10,7 +11,9 @@ import ProjectForm from './ProjectForm';
 class ProjectFormContainer extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            redirectToStudentProfile: false
+        }
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -28,9 +31,15 @@ class ProjectFormContainer extends Component {
         // }
         // Hint: This will reset the value on each input
         // this.state.value = '';
+        this.setState({ redirectToStudentProfile: true })
     };
     
     render () {
+        if (this.state.redirectToStudentProfile) {
+            return (
+                <Redirect to="/student/:id"/>
+            )
+        }
         return (
             <ProjectForm handleSubmit={this.handleSubmit} />
         )
