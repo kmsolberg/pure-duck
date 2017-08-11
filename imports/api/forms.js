@@ -64,10 +64,10 @@ Meteor.methods({
 
     'forms.filterReviews'(data) {
         Forms.find({
-            cohort: data.cohort,
-            class: data.class,
-            form: data.form,
-            topic: data.topic
+            cohort: data.cohortSelect,
+            class: data.classSelect,
+            form: data.formSelect,
+            topic: data.topicSelect
         }).fetch
     }
 })

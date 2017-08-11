@@ -10,8 +10,7 @@ import './style.css';
 class InstructorProfileContainer extends Component {
 
     filterReviews = (values) => {
-        Meteor.call('forms.filterCohort', values);
-        return filteredReviews;
+        return Meteor.call('forms.filterReviews', this.props.values.values);
     }
 
     render () {
@@ -20,12 +19,12 @@ class InstructorProfileContainer extends Component {
                 <div className="instructor-select">
                     <h2>Select reviews:</h2>
                     <ReviewSelector 
-                        onChangeAction={this.filterReviews}
+                        handleSubmit={this.filterReviews}
                     />
                 </div>
                 {this.filteredReviews &&
                     <InstructorProfile 
-                        forms={this.props.filteredReviews} 
+                        forms={this.filteredReviews} 
                         className="review-cards"
                     />
                 }
@@ -33,7 +32,6 @@ class InstructorProfileContainer extends Component {
         )
     }
 }
-
 
 InstructorProfileContainer.defaultProps = {
     forms: []
