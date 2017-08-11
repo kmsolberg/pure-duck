@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
  
-import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
+import { Paper, DropDownMenu, MenuItem, RadioButton, RaisedButton } from 'material-ui';
+import {
+    RadioButtonGroup,
+    TextField
+} from 'redux-form-material-ui';
 
 import './style.css';
 
-
-const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
-    <form name="profileForm" className='Form' onSubmit={() => handleSubmit(event)} >
+let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
+    <form name="profileForm" className='Form' onSubmit={handleSubmit} >
         <Paper className='Paper'>
-            <h1 name="title">{state.title}</h1>
+            <h1 name="title">Project</h1>
             {/* <DropDownMenu value={1}>
                 <MenuItem value={1} primaryText="Never" />
                 <MenuItem value={2} primaryText="Every Night" />
@@ -20,11 +23,7 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             <div>
                 <h1>How well do you think you did?</h1>
                 <h3>( 1-poorly, 5-well )</h3>
-                <RadioButtonGroup 
-                    name="oneToFiveRadio" 
-                    onChange={(event) => handleChange(event)} 
-                    valueSelected={state.oneToFiveRadio} 
-                >
+                <Field name="oneToFiveRadio" component={RadioButtonGroup}>
                     <RadioButton
                         value="1"
                         label="1"
@@ -50,14 +49,11 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
                         label="5"
                         className='radioButton'
                     />
-                </RadioButtonGroup>
+                </Field>
             </div>
             <div>
                 <h1>Do you feel like the lessons built toward the project?</h1>
-                <RadioButtonGroup 
-                    name="trueOrFalse"
-                    onChange={(event) => handleChange(event)} 
-                    valueSelected={state.trueOrFalse} 
+                <Field name="trueOrFalse" component={RadioButtonGroup}
                 >
                     <RadioButton
                         value="true"
@@ -69,14 +65,13 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
                         label="No"
                         className= 'radioButton'
                     />
-                </RadioButtonGroup>
+                </Field>
             </div> 
             <div>
                 <h1>What did you get stuck on?</h1>
-                <TextField
-                    name="value"
-                    value={state.value}
-                    onChange={(event) => handleChange(event)}
+                <Field
+                    name="input1"
+                    component={TextField}
                     hintText="Type Here"
                     floatingLabelText="You know..."
                     fullWidth={true}
@@ -85,10 +80,9 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             </div>
             <div>
                 <h1>Anything you'd like to do but couldn't?</h1>
-                <TextField
-                    name="q2"
-                    value={state.q2}
-                    onChange={(event) => handleChange(event)}  
+                <Field
+                    name="input2"
+                    component={TextField}
                     hintText="Type Here"
                     multiLine={true}
                     rows={2}
@@ -98,10 +92,9 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             </div>
             <div>
                 <h1>Any additions/alterations for this project?</h1>
-                <TextField
+                <Field
                     name="input3"  
-                    value={state.input3}
-                    onChange={(event) => handleChange(event)}  
+                    component={TextField}
                     hintText="Type Here"
                     floatingLabelText="Be honest!"
                     multiLine={true}
@@ -111,10 +104,9 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
             </div>
                 <div>
                 <h1>Rapid takeaway!</h1>
-                <TextField
+                <Field
                     name="input4"
-                    value={state.input4}
-                    onChange={(event) => handleChange(event)}  
+                    component={TextField}
                     hintText="Type Here"
                     floatingLabelText="140 characters or less"
                     multiLine={true}
@@ -122,10 +114,20 @@ const ProjectFormLayout = ({handleChange, handleSubmit, state}) => (
                     fullWidth={true}
                 />
             </div> 
-            <RaisedButton label="Submit" secondary={true} fullWidth={true} type="submit"/>
+            <button type="submit" disabled={pristine || submitting}>Submit</button>
+            <button
+                type="button"
+                disabled={pristine || submitting}
+                onClick={reset}
+            >
+                Clear
+            </button>
         </Paper >
     </form>
 )
+ProjectFormLayout = reduxForm({
+    form: 'forms'
+})(ProjectFormLayout)
 
 export default ProjectFormLayout;
 
