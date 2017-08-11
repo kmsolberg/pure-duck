@@ -6,44 +6,13 @@ import SelectField from 'material-ui/SelectField';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
+import { DatePicker } from 'redux-form-material-ui';
 
 const style = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
 };
-
-const cohortSelect = ({
-    input,
-    label,
-    meta: { touched, error },
-    children,
-    ...custom
-}) =>
-    <SelectField
-        floatingLabelText={label}
-        errorText={touched && error}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-    />
-
-const classSelect = ({
-    input,
-    label,
-    meta: { touched, error },
-    children,
-    ...custom
-}) =>
-    <SelectField
-        floatingLabelText={label}
-        errorText={touched && error}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-    />
 
 const formSelect = ({
     input,
@@ -61,23 +30,8 @@ const formSelect = ({
         {...custom}
     />
 
-const topicSelect = ({
-    input,
-    label,
-    meta: { touched, error },
-    children,
-    ...custom
-}) =>
-    <SelectField
-        floatingLabelText={label}
-        errorText={touched && error}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-    />
-
 const cohorts = [7, 8];
+
 const appDevProjects = [
     'Boomtown',
     'Meteor',
@@ -95,6 +49,34 @@ const webDevProjects = [
     'Community Project'
 ];
 
+const appDevTopics = [
+    'Redux',
+    'Node',
+    'Express',
+    'PostgreSQL',
+    'Meteor',
+    'TDD',
+    'React Native',
+    'Real Database'
+]
+
+const webDevTopics = [
+    'CSS',
+    'Responsive Web Design',
+    'Flexbox',
+    'JQuery',
+    'Ajax, JSON, APIs',
+    'GULP',
+    'SASS',
+    'Performance & Optimization',
+    'Accessibility',
+    'Javascript/ES.next',
+    'OOP',
+    'PHP',
+    'WordPress',
+    'Angular'
+]
+
 let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue }) => {
 
     return (
@@ -107,7 +89,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                     <div>
                         <Field
                             name="cohortSelect"
-                            component={cohortSelect}
+                            component={formSelect}
                             label="Select Cohort"
                         >
                             {cohorts.map((cohort) => (
@@ -123,7 +105,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                         <div>
                             <Field
                                 name="classSelect"
-                                component={classSelect}
+                                component={formSelect}
                                 label="Select a Class"
                             >
                                 <MenuItem value="ADP" primaryText="App Development" />
@@ -148,7 +130,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                         <div>
                             <Field
                                 name="topicSelect"
-                                component={topicSelect}
+                                component={formSelect}
                                 label="What reviews do you want to read?"
                             >
                                 {appDevProjects.map((project) => (
@@ -165,7 +147,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                         <div>
                             <Field
                                 name="topicSelect"
-                                component={topicSelect}
+                                component={formSelect}
                                 label="What reviews do you want to read?"
                             >
                                 {webDevProjects.map((project) => (
@@ -176,6 +158,50 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                                     />
                                 ))}
                             </Field>
+                        </div>
+                    }
+                    {formSelectValue === 'topic' && classSelectValue === 'WDP' &&
+                        <div>
+                            <Field
+                                name="topicSelect"
+                                component={formSelect}
+                                label="What reviews do you want to read?"
+                            >
+                                {webDevTopics.map((project) => (
+                                    <MenuItem
+                                        key={project}
+                                        primaryText={project}
+                                        value={project}
+                                    />
+                                ))}
+                            </Field>
+                        </div>
+                    }
+                    {formSelectValue === 'topic' && classSelectValue === 'ADP' &&
+                        <div>
+                            <Field
+                                name="topicSelect"
+                                component={formSelect}
+                                label="What reviews do you want to read?"
+                            >
+                                {appDevTopics.map((project) => (
+                                    <MenuItem
+                                        key={project}
+                                        primaryText={project}
+                                        value={project}
+                                    />
+                                ))}```
+                            </Field>
+                        </div>
+                    }
+                    {formSelectValue === 'lesson' &&
+                        <div>
+                            <Field
+                                name="topicSelect"
+                                component={DatePicker}
+                                format={null}
+                                hintText="Which lesson?"
+                            />
                         </div>
                     }
                     {topicSelectValue &&

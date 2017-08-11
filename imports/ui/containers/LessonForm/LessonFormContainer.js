@@ -32,19 +32,6 @@ class LessonFormContainer extends Component {
         // this.state.value = '';
         this.setState({ redirectToStudentProfile: true })
 
-    };
-    
-
-    // handleChange = (event) => {
-    //     event.preventDefault();
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // };
-
     render () {
         if (this.state.redirectToStudentProfile) {
             return (
