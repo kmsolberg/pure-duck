@@ -1,0 +1,18 @@
+.radiobuttons {
+    display: flex;
+    max-width: 5rem;
+}
+
+
+svg {
+    fill: #e1231a !important;
+}
+
+.Form {
+    width: 90%;
+    margin: auto;
+}
+
+.Form :nth-child(1) {
+     padding: 0.25rem 1rem; 
+}

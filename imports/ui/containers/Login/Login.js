@@ -24,7 +24,6 @@ const Login = (login) => (
             <Paper className="loginfields" zDepth={1}>
                 <form onSubmit={login} autoComplete="off">
                     <h2 className="loginbanner">Login:</h2>
-                    <div className="username">
                         <h4>Username:</h4>
                         <TextField
                             hintText="Please Enter Your Name"
@@ -36,7 +35,8 @@ const Login = (login) => (
                             hintText="Please Enter Your Password"
                             floatingLabelFixed={true} />
                     </div>
-                    <RaisedButton
+
+                    <div className="username">                    <RaisedButton
                         label="Submit"
                         className="enterButton"
                         type="submit"
