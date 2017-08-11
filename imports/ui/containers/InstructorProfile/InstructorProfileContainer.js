@@ -9,9 +9,9 @@ import ReviewSelector from '../../components/ReviewSelector';
 import './style.css';
 class InstructorProfileContainer extends Component {
 
-    filterCohort = (cohort) => {
-        Meteor.call('forms.filterCohort', cohort);
-        return filterForms;
+    filterReviews = (values) => {
+        Meteor.call('forms.filterCohort', values);
+        return filteredReviews;
     }
 
     render () {
@@ -20,13 +20,15 @@ class InstructorProfileContainer extends Component {
                 <div className="instructor-select">
                     <h2>Select reviews:</h2>
                     <ReviewSelector 
-                        onChangeAction={this.filterCohort}
+                        onChangeAction={this.filterReviews}
                     />
                 </div>
-                <InstructorProfile 
-                    forms={this.props.forms} 
-                    className="review-cards"
-                />
+                {this.filteredReviews &&
+                    <InstructorProfile 
+                        forms={this.props.filteredReviews} 
+                        className="review-cards"
+                    />
+                }
             </div>
         )
     }

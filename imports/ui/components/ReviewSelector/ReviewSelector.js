@@ -190,7 +190,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                                         primaryText={project}
                                         value={project}
                                     />
-                                ))}```
+                                ))}
                             </Field>
                         </div>
                     }
@@ -205,7 +205,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                         </div>
                     }
                     {topicSelectValue &&
-                        <RaisedButton label="Get the Reviews!" />
+                        <RaisedButton onTouchTap={()=> this.handleSubmit} label="Get the Reviews!" />
                     }
                 </form>
             </ Paper>
