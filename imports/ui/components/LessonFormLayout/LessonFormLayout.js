@@ -23,8 +23,8 @@ function disableWeekends(date) {
 const required = value => (value == null ? 'Required' : undefined);
 
 let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
-    <Paper >
-        <form name="Lesson" className='Form' onSubmit={handleSubmit} >
+    <form name="Lesson" className='Form' onSubmit={handleSubmit} >
+        <Paper >
             <h3>Lessons</h3>
             <div>
                 <Field
@@ -117,8 +117,8 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     Clear
                 </button>
             </div>
-        </form>
-    </Paper>
+        </Paper>
+    </form>
 )
 
 LessonFormLayout = reduxForm({

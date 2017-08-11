@@ -27,7 +27,7 @@ export const Forms = new Mongo.Collection('forms');
 // Allow Client to do these things only to this collection...
 Meteor.methods({
   // add profile form data to db
-  'forms.addProfileFormData' (title, form, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4) {
+  'forms.addProfileFormData' (title, form, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4, input5) {
     // check(text, String)
     // if (!this.userId) {
     //   throw new Meteor.Error('todos.toggleComplete.not-authorized')
@@ -37,8 +37,8 @@ Meteor.methods({
         title: title,     
         //   owner: this.userId
         owner: `Brian :)`,
-        // class
-        // cohort
+        class: 'ADP',
+        cohort: '2',
         form: form,
         createdAt: new Date().toLocaleTimeString(),
         oneToFiveRadio: oneToFiveRadio,
@@ -46,7 +46,8 @@ Meteor.methods({
         input1: input1,
         input2: input2,
         input3: input3,
-        input4_takeaway: input4
+        input4: input4,
+        input5: input5
     })
   },
 
