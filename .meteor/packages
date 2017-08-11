@@ -22,5 +22,4 @@ react-meteor-data
 aldeed:simple-schema
 static-html
 momentjs:moment
-accounts-ui-unstyled
-accounts-password
+
