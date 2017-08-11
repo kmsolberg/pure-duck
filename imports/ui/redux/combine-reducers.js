@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-// import { FormRenderer } from './modules/feedBackForm'
+import { FormRedirectRenderer } from './modules/Form'
 import { reducer as formReducer } from 'redux-form';
 
 
 export default combineReducers({
-  form: formReducer
+  form: formReducer,
+  formRedirect: FormRedirectRenderer,
 })
