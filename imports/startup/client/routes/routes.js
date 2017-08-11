@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route,  Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 // route components
 import Login from '../../../ui/containers/Login/';
@@ -17,18 +17,18 @@ const browserHistory = createBrowserHistory();
 
 const renderRoutes = () => (
  
-  <Router history={browserHistory}>
-    <div className="iminroutes">
-      <Route path="/comments" component={Comments} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/login" component={Login} />
-      <Route path="/projects" component={ProjectForm} />
-      <Route path="/topics" component={TopicForm} />
-      <Route path="/lessons" component={LessonForm} />
-      <Route path="/student/:id" component={StudentProfile} />
-      <Route path="/instructor/:id" component={InstructorProfile} />
-      <Route component={NotFound} />
-    </div>
+    <Router history={browserHistory}>
+        <Switch>
+            <Route path="/comments" component={Comments} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/projects" component={ProjectForm} />
+            <Route path="/topics" component={TopicForm} />
+            <Route path="/lessons" component={LessonForm} />
+            <Route path="/student/:id" component={StudentProfile} />
+            <Route path="/instructor/:id" component={InstructorProfile} />
+            <Route component={NotFound} />
+        </Switch>
   </Router>
 );
 
