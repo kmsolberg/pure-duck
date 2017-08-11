@@ -32,7 +32,7 @@ Meteor.methods({
             throw new Meteor.Error('Your are not authorized')
         }
         Forms.insert({
-            title: title,     
+            title: title,
             owner: this.userId,
             class: 'ADP',
             cohort: '2',
@@ -58,8 +58,16 @@ Meteor.methods({
         // }
     },
 
-    'forms.filterCohort' (value) {
-        Forms.find({cohort: value}).fetch()
-    }
+    // 'forms.filterCohort' (value) {
+    //     Forms.find({cohort: value}).fetch()
+    // },
 
+    'forms.filterReviews'(data) {
+        Forms.find({
+            cohort: data.cohort,
+            class: data.class,
+            form: data.form,
+            topic: data.topic
+        }).fetch
+    }
 })
