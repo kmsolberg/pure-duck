@@ -4,16 +4,11 @@ import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
 import PropTypes from 'prop-types';
+import { loadFormRedirect } from '../../redux/modules/Form';
 
 import LessonForm from './LessonForm';
 
 class LessonFormContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectToStudentProfile: false
-        }
-    }
     handleSubmit = (event) => {
         event.preventDefault();
         // if (this.state.value) {
@@ -28,25 +23,11 @@ class LessonFormContainer extends Component {
             const input5= this.props.values.values.input5;
             Meteor.call('forms.addProfileFormData', title, form, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4, input5)
         // }
-        // Hint: This will reset the value on each input
-        // this.state.value = '';
-        this.setState({ redirectToStudentProfile: true })
-
+          const redirect= this.props.dispatch(loadFormRedirect(true));
     };
-    
-
-    // handleChange = (event) => {
-    //     event.preventDefault();
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // };
 
     render () {
-        if (this.state.redirectToStudentProfile) {
+        if (this.props.redirect) {
             return (
                 <Redirect to="/student/:id"/>
             )
@@ -64,6 +45,7 @@ LessonFormContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         values: state.form.forms,
+        redirect: state.formRedirect.Redirect
     };
 }
 
