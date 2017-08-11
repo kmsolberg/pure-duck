@@ -24,29 +24,29 @@ const Login = (login) => (
             <Paper className="loginfields" zDepth={1}>
                 <form onSubmit={login} autoComplete="off">
                     <h2 className="loginbanner">Login:</h2>
-                    <div className="username">
-                        <h4>Username:</h4>
-                        <TextField
-                            hintText="Please Enter Your Name"
-                            floatingLabelFixed={true} />
-                    </div>
+                    <h4>Username:</h4>
+                    <TextField
+                        hintText="Please Enter Your Name"
+                        floatingLabelFixed={true} />
                     <div className="password">
                         <h4>Password:</h4>
                         <TextField
                             hintText="Please Enter Your Password"
                             floatingLabelFixed={true} />
                     </div>
-                    <RaisedButton
-                        label="Submit"
-                        className="enterButton"
-                        type="submit"
-                        onSubmit={() => Meteor.loginWithPassword("test@user.com", "password")} />
-                    <RaisedButton
-                        label="Register"
-                        className="linktoregister"
-                        type="link"
-                    />
 
+                    <div className="username">
+                        <RaisedButton
+                            label="Submit"
+                            className="enterButton"
+                            type="submit"
+                            onSubmit={() => Meteor.loginWithPassword("test@user.com", "password")} />
+                        <RaisedButton
+                            label="Register"
+                            className="linktoregister"
+                            type="link"
+                        />
+                    </div>
                 </form>
             </Paper>
         </div>

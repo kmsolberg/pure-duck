@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Forms } from '../../../api/forms.js';
@@ -8,9 +9,9 @@ import ReviewSelector from '../../components/ReviewSelector';
 import './style.css';
 class InstructorProfileContainer extends Component {
 
-    filterCohort = (cohort) => {
-        Meteor.call('forms.filterCohort', cohort);
-        return filterForms;
+    filterReviews = (values) => {
+        Meteor.call('forms.filterCohort', values);
+        return filteredReviews;
     }
 
     render () {
@@ -19,13 +20,15 @@ class InstructorProfileContainer extends Component {
                 <div className="instructor-select">
                     <h2>Select reviews:</h2>
                     <ReviewSelector 
-                        onChangeAction={this.filterCohort}
+                        onChangeAction={this.filterReviews}
                     />
                 </div>
-                <InstructorProfile 
-                    forms={this.props.forms} 
-                    className="review-cards"
-                />
+                {this.filteredReviews &&
+                    <InstructorProfile 
+                        forms={this.props.filteredReviews} 
+                        className="review-cards"
+                    />
+                }
             </div>
         )
     }
@@ -40,8 +43,16 @@ InstructorProfileContainer.propTypes = {
     forms: PropTypes.array.isRequired
 };
 
-export default InstructorProfileContainer = createContainer(() => {
+function mapStateToProps(state) {
+    return {
+        values: state.form.reviewSelector,
+    };
+}
+
+InstructorContainer = createContainer(() => {
     return {
         forms: Forms.find({}).fetch(),
     };
 }, InstructorProfileContainer);
+
+export default connect(mapStateToProps)(InstructorContainer)
