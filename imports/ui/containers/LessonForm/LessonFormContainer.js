@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
@@ -9,15 +10,9 @@ import LessonForm from './LessonForm';
 class LessonFormContainer extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     title: 'Review Lesson React-Meteor',
-        //     input1: 'Sense of reality',
-        //     input2: 'Nipple Assault',
-        //     input3: 'Anyone could see my unicorn',
-        //     input4: 'Pull it Out',
-        //     input5: 'Welcome Back Trevor!',
-            // form: 'Lesson'
-        // };
+        this.state = {
+            redirectToStudentProfile: false
+        }
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -35,6 +30,8 @@ class LessonFormContainer extends Component {
         // }
         // Hint: This will reset the value on each input
         // this.state.value = '';
+        this.setState({ redirectToStudentProfile: true })
+
     };
     
 
@@ -49,6 +46,11 @@ class LessonFormContainer extends Component {
     // };
 
     render () {
+        if (this.state.redirectToStudentProfile) {
+            return (
+                <Redirect to="/student/:id"/>
+            )
+        }
         return (
             <LessonForm handleSubmit={this.handleSubmit} />
         )
