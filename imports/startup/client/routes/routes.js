@@ -9,12 +9,13 @@ import InstructorProfile from '../../../ui/containers/InstructorProfile/';
 import ProjectForm from '../../../ui/containers/ProjectForm/';
 import LessonForm from '../../../ui/containers/LessonForm/';
 import Comments from '../../../ui/containers/Comments/';
+import NotFound from '../../../ui/containers/NotFound/';
 import './style.css';
 
 const browserHistory = createBrowserHistory();
 
 const renderRoutes = () => (
-
+ 
   <Router history={browserHistory}>
     <div className="iminroutes">
       <Route path="/comments" component={Comments} />
@@ -24,7 +25,7 @@ const renderRoutes = () => (
       <Route path="/lessons" component={LessonForm} />
       <Route path="/student/:id" component={StudentProfile} />
       <Route path="/instructor/:id" component={InstructorProfile} />
-
+      <Route component={NotFound} />
     </div>
   </Router>
 );
