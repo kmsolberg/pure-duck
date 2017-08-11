@@ -61,7 +61,6 @@ export default Signup = (signup) => (
                         hintText="Cohort"
                         floatingLabelFixed={true} />
                 </div>
-
                 <RaisedButton
                     label="Submit"
                     className="enterButton"

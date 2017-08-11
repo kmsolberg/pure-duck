@@ -41,6 +41,12 @@ const Login = (login) => (
                         className="enterButton"
                         type="submit"
                         onSubmit={() => Meteor.loginWithPassword("test@user.com", "password")} />
+                    <RaisedButton
+                        label="Register"
+                        className="linktoregister"
+                        type="link"
+                    />
+
                 </form>
             </Paper>
         </div>
