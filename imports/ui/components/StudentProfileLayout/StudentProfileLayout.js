@@ -12,8 +12,10 @@ const StudentProfileLayout = ({forms, ReviewCount}) => (
             </Link>
             <Link to="/lessons">            
                 <RaisedButton label="Lesson" primary={true} />
-            </Link>            
-            <RaisedButton label="Topic" primary={true} />
+            </Link>   
+            <Link to="/topics">            
+                <RaisedButton label="Topic" primary={true} />
+            </Link>
         </Paper>
         <Paper >
             <h1>{ReviewCount} Past {ReviewCount === 1 ? 'Review' : 'Reviews'}...</h1>   
