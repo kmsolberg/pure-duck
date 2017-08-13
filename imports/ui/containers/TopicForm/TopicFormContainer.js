@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms';
 import PropTypes from 'prop-types';
+import { loadFormRedirect } from '../../redux/modules/Form';
 
 import TopicForm from './TopicForm';
 
@@ -31,9 +33,16 @@ class TopicFormContainer extends Component {
             input4, 
             input5
         )
+
+        const redirect= this.props.dispatch(loadFormRedirect(true));
     };
 
     render () {
+        if (this.props.redirect) {
+            return (
+                <Redirect to="/student/:id"/>
+            )
+        }
         return (
             <TopicForm handleSubmit={this.handleSubmit} />
         )
@@ -47,6 +56,7 @@ TopicFormContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         values: state.form.forms,
+        redirect: state.formRedirect.Redirect
     };
 }
 
