@@ -100,7 +100,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             <div>
                 <h3>Your summary of the day!</h3>
                 <Field
-                    name="takeaway"
+                    name="input5"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="140 characters or less"
