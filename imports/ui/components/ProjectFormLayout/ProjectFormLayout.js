@@ -102,10 +102,20 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     fullWidth={true}
                 />
             </div>
-                <div>
-                <h1>Rapid takeaway!</h1>
+            <div>
+                <h3>Your summary of the project!</h3>
                 <Field
                     name="input4"
+                    component={TextField}
+                    hintText="Type Here"
+                    floatingLabelText="140 characters or less"
+                    rows={2}
+                />
+            </div>
+            <div>
+                <h1>Rapid takeaway!</h1>
+                <Field
+                    name="input5"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="140 characters or less"

@@ -27,17 +27,27 @@ export const Forms = new Mongo.Collection('forms');
 // Allow Client to do these things only to this collection...
 Meteor.methods({
   // add profile form data to db
-    'forms.addProfileFormData' (title, form, oneToFiveRadio, trueOrFalse, input1, input2, input3, input4, input5) {
+    'forms.addProfileFormData' (
+        date, 
+        form, 
+        oneToFiveRadio, 
+        trueOrFalse, 
+        input1, 
+        input2, 
+        input3, 
+        input4, 
+        input5
+    ) {
         if (!this.userId) {
             throw new Meteor.Error('Your are not authorized')
         }
         Forms.insert({
-            title: title,
+            date: date.toString(),
             owner: this.userId,
             class: 'ADP',
             cohort: '2',
             form: form,
-            createdAt: new Date().toLocaleTimeString(),
+            createdAt: new Date().toString(),
             oneToFiveRadio: oneToFiveRadio,
             trueOrFalse: trueOrFalse,
             input1: input1,
