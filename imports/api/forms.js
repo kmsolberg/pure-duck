@@ -63,11 +63,11 @@ Meteor.methods({
     // },
 
     'forms.filterReviews'(data) {
-        Forms.find({
+        return Forms.find({
             cohort: data.cohortSelect,
             class: data.classSelect,
             form: data.formSelect,
             topic: data.topicSelect
-        }).fetch
+        }).fetch()
     }
 })
