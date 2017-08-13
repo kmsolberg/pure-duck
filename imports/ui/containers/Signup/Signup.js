@@ -9,11 +9,14 @@ const style = {
     margin: 12,
 };
 
-export default Signup = (signup) => (
+export default Signup = ({signup}) => (
     <div className="loginformwrapper">
         <AccountsUIWrapper />
         <Paper className="loginfields" zDepth={1}>
-            <form onSubmit={signup} autoComplete="off">
+            <form 
+                onSubmit={signup} 
+                autoComplete="off"
+            >
                 <h2 className="loginbanner">Register Your Account:</h2>
                 <div className="signupName">
                     <h4>Full Name:</h4>
@@ -65,7 +68,6 @@ export default Signup = (signup) => (
                     label="Submit"
                     className="enterButton"
                     type="submit"
-                    onSubmit={() => Meteor.createUser(username, password = '')}
                 />
             </form>
         </Paper>
