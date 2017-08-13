@@ -39,7 +39,7 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             </div>
             <div>
                 <h3>Did you encounter any specific hurdles with this topic?</h3>
-                <TextField
+                <Field
                     name="input1"
                     component={TextField}
                     hintText="Type Here"
@@ -56,7 +56,7 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     hintText="Type Here"
                     floatingLabelText="What do you really think..."
                     multiLine
-                    rows={1}
+                    rows={1} 
                 />
             </div>
             <div>
@@ -69,7 +69,7 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             <div>
                 <h3>Any other feedback concerning this topic?</h3>
                 <Field
-                    name="input4"
+                    name="input3"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="That one thing you still don't get"
