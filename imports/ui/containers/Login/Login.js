@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import './style.css';
 
-import AccountsUIWrapper from '../../components/AccountsUIWrapper/index.js';
+import AccountsUIWrapper from '../../components/AccountsUIWrapper/index';
 
 const style = {
     height: 100,
@@ -21,34 +21,31 @@ const Login = (login) => (
     <Paper className="iminpaper">
         <AccountsUIWrapper />
         <div className="loginformwrapper">
-            <Paper className="loginfields" zDepth={1}>
-                <form onSubmit={login} autoComplete="off">
-                    <h2 className="loginbanner">Login:</h2>
-                    <h4>Username:</h4>
+            <form onSubmit={login} autoComplete="off">
+                <h2 className="loginbanner">Login:</h2>
+                <h4>Username:</h4>
+                <TextField
+                    hintText="Please Enter Your Name"
+                    floatingLabelFixed={true} />
+                <div className="password">
+                    <h4>Password:</h4>
                     <TextField
-                        hintText="Please Enter Your Name"
+                        hintText="Please Enter Your Password"
                         floatingLabelFixed={true} />
-                    <div className="password">
-                        <h4>Password:</h4>
-                        <TextField
-                            hintText="Please Enter Your Password"
-                            floatingLabelFixed={true} />
-                    </div>
-
-                    <div className="username">
-                        <RaisedButton
-                            label="Submit"
-                            className="enterButton"
-                            type="submit"
-                            onSubmit={() => Meteor.loginWithPassword("test@user.com", "password")} />
-                        <RaisedButton
+                </div>
+                <div className="username">
+                    <RaisedButton
+                        label="Submit"
+                        className="enterButton"
+                        type="submit"
+                        onSubmit={() => Meteor.loginWithPassword(username, password)} />
+                    {/* <RaisedButton
                             label="Register"
                             className="linktoregister"
                             type="link"
-                        />
-                    </div>
-                </form>
-            </Paper>
+                        /> */}
+                </div>
+            </form>
         </div>
     </Paper>
 
