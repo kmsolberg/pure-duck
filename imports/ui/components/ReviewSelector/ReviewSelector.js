@@ -205,7 +205,7 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                         </div>
                     }
                     {topicSelectValue &&
-                        <RaisedButton onTouchTap={()=> this.handleSubmit} label="Get the Reviews!" />
+                        <RaisedButton onTouchTap={()=> handleSubmit()} label="Get the Reviews!" />
                     }
                 </form>
             </ Paper>
