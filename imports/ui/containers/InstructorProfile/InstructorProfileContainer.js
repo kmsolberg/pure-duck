@@ -11,7 +11,12 @@ import './style.css';
 class InstructorProfileContainer extends Component {
 
     filterReviews = (values) => {
-        Meteor.call('forms.filterReviews', this.props.values.values, (error, result) => {
+        Meteor.call('forms.filterReviews', 
+            this.props.values.values.classSelect,
+            this.props.values.values.cohortSelect,
+            this.props.values.values.formSelect,
+            this.props.values.values.topicSelect,
+            (error, result) => {
             if(error) {
                 alert('error!')
             } else {
@@ -29,7 +34,7 @@ class InstructorProfileContainer extends Component {
                         handleSubmit={this.filterReviews}
                     />
                 </div>
-                 {this.filteredReviews &&
+                {this.filteredReviews &&
                     <InstructorProfile 
                         forms={this.filteredReviews} 
                         className="review-cards"
@@ -56,7 +61,7 @@ function mapStateToProps(state) {
 }
 
 InstructorContainer = createContainer(() => {
-    Meteor.subscribe('forms');
+    Meteor.subscribe('Forms');
 
     return {
         forms: Forms.find({}).fetch(),
