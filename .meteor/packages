@@ -24,3 +24,4 @@ static-html
 momentjs:moment
 accounts-ui
 accounts-password
+useraccounts:core

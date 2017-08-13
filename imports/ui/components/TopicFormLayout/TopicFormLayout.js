@@ -27,15 +27,6 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
         <Paper className="topicform">
             <h2>Topics</h2>
             <div>
-                {/* <Field
-                    name="TopicDate"
-                    component={DatePicker}
-                    format={null}
-                    hintText="Date of Topic"
-                    validate={required}
-                /> */}
-            </div>
-            <div>
                 <h3>What do you feel is your level of understanding?</h3>
                 <h5>( 1-poorly, 5-well )</h5>
                 <Field className="radiobuttons" name="oneToFiveRadio" component={RadioButtonGroup}>
