@@ -24,20 +24,20 @@ const required = value => (value == null ? 'Required' : undefined);
 
 let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
     <form name="Topic" className='Form' onSubmit={handleSubmit} >
-        <Paper >
-            <h3>Topics</h3>
+        <Paper className="topicform">
+            <h2>Topics</h2>
             <div>
-                <Field
+                {/* <Field
                     name="TopicDate"
                     component={DatePicker}
                     format={null}
                     hintText="Date of Topic"
                     validate={required}
-                />
+                /> */}
             </div>
             <div>
-                <h3>How well do you think you did?</h3>
-                <h4>( 1-poorly, 5-well )</h4>
+                <h3>What do you feel is your level of understanding?</h3>
+                <h5>( 1-poorly, 5-well )</h5>
                 <Field className="radiobuttons" name="oneToFiveRadio" component={RadioButtonGroup}>
                     <RadioButton value="1" label="1" />
                     <RadioButton value="2" label="2" />
@@ -47,68 +47,50 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                 </Field>
             </div>
             <div>
-                <h3>What did you find difficult about the Topic, and why?</h3>
-                <Field
+                <h3>Did you encounter any specific hurdles with this topic?</h3>
+                <TextField
                     name="input1"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="Got stuck?"
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
-                <h3>What was something you learned?</h3>
+                <h3>Is there anything that needs to be followed up on?</h3>
                 <Field
                     name="input2"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="What do you really think..."
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
-                <h3>Do you think the Topic adequately prepared you for the lab?</h3>
-                <Field name="trueOrFalse" component={RadioButtonGroup}>
+                <h3>Do you beleive this topic adequetly prepared you for the project?</h3>
+                <Field className="formyesno" name="trueOrFalse" component={RadioButtonGroup}>
                     <RadioButton value="true" label="Yes" />
                     <RadioButton value="false" label="No" />
                 </Field>
             </div>
             <div>
-                <h3>Any questions you wanted to ask but couldn't?</h3>
+                <h3>Any other feedback concerning this topic?</h3>
                 <Field
                     name="input4"
                     component={TextField}
                     hintText="Type Here"
                     floatingLabelText="That one thing you still don't get"
                     multiLine
-                    rows={3}
-                />
-            </div>
-            <div>
-                <h3>Any other comments about the day?</h3>
-                <Field
-                    name="input3"
-                    component={TextField}
-                    hintText="Type Here"
-                    floatingLabelText="Be honest!"
-                    multiLine
-                    rows={3}
-                />
-            </div>
-            <div>
-                <h3>Your summary of the day!</h3>
-                <Field
-                    name="takeaway"
-                    component={TextField}
-                    hintText="Type Here"
-                    floatingLabelText="140 characters or less"
                     rows={1}
                 />
             </div>
             <div>
-                <button type="submit" disabled={pristine || submitting}>Submit</button>
+                <button
+                    type="submit"
+                    disabled={pristine || submitting}>Submit
+                </button>
                 <button
                     type="button"
                     disabled={pristine || submitting}
