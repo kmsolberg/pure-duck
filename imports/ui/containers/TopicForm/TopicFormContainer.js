@@ -9,15 +9,6 @@ import TopicForm from './TopicForm';
 class TopicFormContainer extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     title: 'Review Topic React-Meteor',
-        //     input1: 'Sense of reality',
-        //     input2: 'Nipple Assault',
-        //     input3: 'Anyone could see my unicorn',
-        //     input4: 'Pull it Out',
-        //     input5: 'Welcome Back Trevor!',
-            // form: 'Topic'
-        // };
     }
     handleSubmit = (event) => {
         event.preventDefault();
