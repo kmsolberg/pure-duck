@@ -18,3 +18,21 @@
 //     minCount: 1
 //   }
 // });
+import { Mongo } from 'meteor/mongo';
+import { Meteor } from 'meteor/meteor';
+
+import { Accounts } from 'meteor/accounts-base';
+
+Meteor.methods({
+
+    'registerUser'() {
+        Accounts.createUser({
+            email : 'lau12@gmail.com',
+            password : 'laulau',
+            profile: {
+                cohort: '12134',
+                class: 'ADP'
+            }
+        })
+    },
+})
