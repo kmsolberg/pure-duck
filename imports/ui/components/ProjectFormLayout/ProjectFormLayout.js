@@ -103,12 +103,12 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                 />
             </div>
             <div>
-                <h3>Your summary of the project!</h3>
+                <h3>What aspects did you enjoy about the project?</h3>
                 <Field
                     name="input4"
                     component={TextField}
                     hintText="Type Here"
-                    floatingLabelText="140 characters or less"
+                    floatingLabelText="You know you loved it!"
                     rows={2}
                 />
             </div>

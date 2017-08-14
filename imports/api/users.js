@@ -1,20 +1,17 @@
-// StudentSchema = new SimpleSchema({
-//   email: {
-//     type: String,
-//     max: 100
-//   },
-//   password: {
-//     type: String,
-//     max: 50
-//   }
-// });
+import { Mongo } from 'meteor/mongo';
+import { Meteor } from 'meteor/meteor';
 
-// CustomerSchema = new SimpleSchema({
-//   billingAddress: {
-//     type: AddressSchema
-//   },
-//   shippingAddresses: {
-//     type: [AddressSchema],
-//     minCount: 1
-//   }
-// });
+import { Accounts } from 'meteor/accounts-base';
+
+Meteor.methods({
+    'registerUser'() {
+        Accounts.createUser({
+            email : 'TEST3@gmail.com',
+            password : 'laulau',
+            profile: {
+                cohort: '12134',
+                class: 'ADP TEST1'
+            }
+        })
+    },
+})

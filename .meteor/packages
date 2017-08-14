@@ -23,4 +23,6 @@ aldeed:simple-schema
 static-html
 momentjs:moment
 accounts-password
+useraccounts:core
+session
 accounts-ui

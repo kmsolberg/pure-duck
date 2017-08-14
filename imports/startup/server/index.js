@@ -1,3 +1,4 @@
 import '../../api/forms';
+import '../../api/users';
 
-import { Users } from '../';
+import './fixtures';
