@@ -9,12 +9,13 @@ const ReviewCard = ({form}) => (
             title={form.form}
             subtitle={form.title}
         />
-        <CardText>1: {form.lesson1}/5</CardText>  
-        {/* <CardText>The lesson {form.lesson2} ? did : didn't built up to the lab.</CardText> */}
-        <CardText>3: {form.lesson3}</CardText>
-        <CardText>4: {form.lesson4}</CardText>
-        <CardText>5: {form.lesson5}</CardText>
-        <CardText>Takeaway: {form.lessonTakeaway}</CardText>        
+        <CardText>1: I feel I did {form.oneToFiveRadio}/5</CardText>  
+        <CardText>The lesson {form.trueOrFalse === true ? 'did' : 'did not' } help build up my general knowledge.</CardText> 
+        <CardText>3: {form.input1}</CardText>
+        <CardText>4: {form.input2}</CardText>
+        <CardText>5: {form.input3}</CardText>
+        <CardText>6: {form.input4}</CardText>
+        <CardText>Takeaway: {form.input5}</CardText>        
     </Card>
 )
 
