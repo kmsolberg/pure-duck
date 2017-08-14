@@ -5,12 +5,12 @@ import {
     DropDownMenu,
     MenuItem,
     RadioButton,
-    RaisedButton
+    RaisedButton,
 } from 'material-ui';
 
 import {
-    DatePicker,
     RadioButtonGroup,
+    DatePicker,
     TextField
 } from 'redux-form-material-ui';
 
@@ -19,6 +19,7 @@ import './style.css';
 function disableWeekends(date) {
     return date.getDay() === 0 || date.getDay() === 6;
 }
+
 
 const required = value => (value == null ? 'Required' : undefined);
 
@@ -31,7 +32,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     name="lessonDate"
                     component={DatePicker}
                     format={null}
-                    hintText="Date of lesson"
+                    hintText="Which lesson do you want to review?"
                     validate={required}
                 />
             </div>

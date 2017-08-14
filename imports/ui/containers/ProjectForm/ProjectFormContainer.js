@@ -14,7 +14,8 @@ class ProjectFormContainer extends Component {
         event.preventDefault();
 
         const date= new Date().toDateString();
-        const form = 'Project';
+        const form = 'project';
+        const title = this.props.values.values.titleSelect
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
         const input1 = this.props.values.values.input1;
@@ -27,7 +28,8 @@ class ProjectFormContainer extends Component {
         Meteor.call(
             'forms.addProfileFormData',
             date, 
-            form, 
+            form,
+            title,
             oneToFiveRadio, 
             trueOrFalse, 
             input1, 

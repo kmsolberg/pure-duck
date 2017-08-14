@@ -28,8 +28,8 @@ export const Forms = new Mongo.Collection('forms');
 Meteor.methods({
   // add profile form data to db
     'forms.addProfileFormData' (
-        date, 
-        form, 
+        form,
+        title,
         oneToFiveRadio, 
         trueOrFalse, 
         input1, 
@@ -39,14 +39,14 @@ Meteor.methods({
         input5
     ) {
         if (!this.userId) {
-            throw new Meteor.Error('Your are not authorized')
+            throw new Meteor.Error('You are not authorized')
         }
         Forms.insert({
-            date: date.toString(),
             owner: this.userId,
-            class: 'ADP',
-            cohort: 2,
+            class: this.user.profile.class,
+            cohort: this.user.profile.cohort,
             form: form,
+            title: title,
             createdAt: new Date().toString(),
             oneToFiveRadio: oneToFiveRadio,
             trueOrFalse: trueOrFalse,
