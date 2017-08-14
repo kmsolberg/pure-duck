@@ -14,8 +14,8 @@ class LessonFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const date = this.props.values.values.lessonDate;
-        const form = 'Lesson';
+        const form = 'lesson';
+        const title = this.props.values.values.lessonDate;
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
         const input1 = this.props.values.values.input1;
@@ -26,8 +26,8 @@ class LessonFormContainer extends Component {
 
         Meteor.call(
             'forms.addProfileFormData', 
-            date, 
             form, 
+            title,
             oneToFiveRadio, 
             trueOrFalse, 
             input1, 
