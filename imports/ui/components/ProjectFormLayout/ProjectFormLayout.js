@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
  
-import { Paper, DropDownMenu, MenuItem, RadioButton, RaisedButton } from 'material-ui';
+import { Paper, MenuItem, RadioButton, RaisedButton, SelectField } from 'material-ui';
 import {
     RadioButtonGroup,
     TextField
@@ -48,7 +48,7 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             <h1 name="title">Project</h1>
             <div>
                 <Field
-                    name="topicSelect"
+                    name="titleSelect"
                     component={formSelect}
                     label="Which project are you reviewing?"
                 >
