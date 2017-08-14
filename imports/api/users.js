@@ -10,7 +10,7 @@ Meteor.methods({
             password : password,
             profile: {
                 cohort: cohort,
-                course: course,
+                class: course,
                 role: role
             }
         })
