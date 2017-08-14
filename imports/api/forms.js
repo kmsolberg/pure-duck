@@ -6,7 +6,7 @@ export const Forms = new Mongo.Collection('forms');
 
 if (Meteor.isServer) {
   Meteor.publish('forms', function formsPublication() {
-    return Forms.find()
+    return Forms.find({owner: this.userId})
   })
 }
 
