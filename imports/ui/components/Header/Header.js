@@ -13,7 +13,9 @@ const Header = () => (
         className="appbar"
         showMenuIconButton={false}
         title={
+            <a href='/'>
             <img className="redlogo" src="../../../../images/RED-Logos-RGB-03-cropped-1.svg" />
+            </a>
         }
     >
         <a href="/comments"><p>comments</p></a>
