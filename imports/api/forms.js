@@ -39,7 +39,7 @@ Meteor.methods({
         input5
     ) {
         if (!this.userId) {
-            throw new Meteor.Error('Your are not authorized')
+            throw new Meteor.Error('You are not authorized')
         }
         Forms.insert({
             date: date.toString(),
