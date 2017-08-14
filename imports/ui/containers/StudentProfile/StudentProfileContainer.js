@@ -11,7 +11,16 @@ import StudentProfile from './StudentProfile';
 class StudentProfileContainer extends Component {
     render () {
         return (
-            <StudentProfile forms={this.props.forms} ReviewCount={this.props.ReviewCount}/>
+            <div>
+                {(!this.props.currentUserId) ? (
+                    <div className="logged-out-message">
+                    <p>Please sign in to see your reviews.</p>
+                    </div>
+                )
+                :
+                <StudentProfile forms={this.props.forms} ReviewCount={this.props.ReviewCount}/>
+                }
+            </div>
         )
     }
 }
@@ -31,5 +40,6 @@ export default createContainer(() => {
   return{
     forms: Forms.find({}, { sort: { createdAt: -1 } }).fetch(),
     ReviewCount: Forms.find({ checked: { $ne: true } }).count(),
+    currentUserId: Meteor.userId()
   }
 }, StudentProfileContainer)
