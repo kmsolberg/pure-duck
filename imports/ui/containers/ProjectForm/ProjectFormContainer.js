@@ -12,10 +12,11 @@ import ProjectForm from './ProjectForm';
 class ProjectFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-
-        const date= new Date().toDateString();
+        const course = this.props.user[0].profile.class;
+        const cohort= this.props.user[0].profile.cohort;
         const form = 'project';
         const title = this.props.values.values.titleSelect
+        const date= new Date().toDateString();
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
         const input1 = this.props.values.values.input1;
@@ -24,12 +25,13 @@ class ProjectFormContainer extends Component {
         const input4= this.props.values.values.input4;
         const input5= this.props.values.values.input5;
 
-
         Meteor.call(
             'forms.addProfileFormData',
-            date, 
+            course,
+            cohort,
             form,
             title,
+            date, 
             oneToFiveRadio, 
             trueOrFalse, 
             input1, 
@@ -45,7 +47,7 @@ class ProjectFormContainer extends Component {
     render () {
         if (this.props.redirect) {
             return (
-                <Redirect to="/student/:id"/>
+                <Redirect to="/student/`${this.currentUserID}`"/>
             )
         }
         return (
@@ -61,6 +63,7 @@ ProjectFormContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         values: state.form.forms,
+        currentUserId: Meteor.userId(),
         redirect: state.formRedirect.Redirect
     };
 }
@@ -68,7 +71,8 @@ function mapStateToProps(state) {
 const ProfileContainer= createContainer(() => {
     Meteor.subscribe('forms');
     return{
-        forms: Forms.find().fetch()
+        forms: Forms.find().fetch(),
+        user: Meteor.users.find().fetch()
     }
 }, ProjectFormContainer)
 
