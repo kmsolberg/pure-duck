@@ -4,13 +4,14 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 Meteor.methods({
-    'registerUser'() {
+    'registerUser'(email, password, cohort, course, role) {
         Accounts.createUser({
-            email : 'TEST3@gmail.com',
-            password : 'laulau',
+            email : email,
+            password : password,
             profile: {
-                cohort: '12134',
-                class: 'ADP TEST1'
+                cohort: cohort,
+                course: course,
+                role: role
             }
         })
     },
