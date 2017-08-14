@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Meteor } from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Forms } from '../../../api/forms.js';
@@ -20,7 +20,7 @@ class InstructorProfileContainer extends Component {
             if(error) {
                 alert('error!')
             } else {
-                const filteredReviews = result;
+                console.log(result);
             }
         });
     }
@@ -34,13 +34,14 @@ class InstructorProfileContainer extends Component {
                         handleSubmit={this.filterReviews}
                     />
                 </div>
-                {this.filteredReviews &&
+                {this.props.filteredReviews ? (
                     <InstructorProfile 
                         forms={this.filteredReviews} 
                         className="review-cards"
                     />
-                } 
-                <h2>No reviews selected!</h2>
+                ) : (
+                    <h2>No reviews selected!</h2>
+                )} 
             </div>
         )
     }
