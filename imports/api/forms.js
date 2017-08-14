@@ -35,8 +35,11 @@ if (Meteor.isServer) {
 Meteor.methods({
   // add profile form data to db
     'forms.addProfileFormData' (
+        course,
+        cohort,
         form,
         title,
+        date,
         oneToFiveRadio, 
         trueOrFalse, 
         input1, 
@@ -50,11 +53,11 @@ Meteor.methods({
         }
         Forms.insert({
             owner: this.userId,
-            class: this.user.profile.class,
-            cohort: this.user.profile.cohort,
+            class: course,
+            cohort: cohort,
             form: form,
             title: title,
-            createdAt: new Date().toString(),
+            createdAt: date,
             oneToFiveRadio: oneToFiveRadio,
             trueOrFalse: trueOrFalse,
             input1: input1,

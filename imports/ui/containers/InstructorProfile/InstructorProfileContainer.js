@@ -10,7 +10,7 @@ import { filterReviews } from '../../redux/modules/Reviews';
 
 import './style.css';
 class InstructorProfileContainer extends Component {
-
+    
     filterReviews = (values) => {
         Meteor.call('forms.filterReviews', 
             this.props.values.values.classSelect,

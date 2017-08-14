@@ -13,9 +13,11 @@ import LessonForm from './LessonForm';
 class LessonFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-
+        const course = this.props.user[0].profile.class;
+        const cohort= this.props.user[0].profile.cohort;
         const form = 'lesson';
-        const title = this.props.values.values.lessonDate;
+        const title = this.props.values.values.lessonDate.toDateString();
+        const date= new Date().toDateString();
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
         const input1 = this.props.values.values.input1;
@@ -26,8 +28,11 @@ class LessonFormContainer extends Component {
 
         Meteor.call(
             'forms.addProfileFormData', 
-            form, 
+            course,
+            cohort,
+            form,
             title,
+            date, 
             oneToFiveRadio, 
             trueOrFalse, 
             input1, 
@@ -66,7 +71,8 @@ function mapStateToProps(state) {
 const LessonContainer = createContainer(() => {
     Meteor.subscribe('forms');
     return{
-        forms: Forms.find().fetch()
+        forms: Forms.find().fetch(),
+        user: Meteor.users.find().fetch()
     }
 }, LessonFormContainer)
 
