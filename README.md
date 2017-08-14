@@ -22,7 +22,7 @@ Add me to your directory.
 
 Next you'll need to run `npm install` and `meteor npm install` next to install the node modules you'll need for Meteor, React, Babel etc.
 
-### Set-Up
+### Starting the Project
 
 ```meteor```
 
@@ -38,11 +38,8 @@ Next you'll need to run `npm install` and `meteor npm install` next to install t
 - [mLab](https://mlab.com/) - A mLab is a fully managed cloud database service that hosts MongoDB databases
 
 
-- Webpack
-- Moment
-
 ## Developed By
 
-Brian Lau [GitHub](https://github.com/wtLau)
-Kat Solberg [GitHub](https://github.com/kmsolberg)
-Eric Liddle [GitHub](https://github.com/ericliddle)
+- Brian Lau [GitHub](https://github.com/wtLau)
+- Kat Solberg [GitHub](https://github.com/kmsolberg)
+- Eric Liddle [GitHub](https://github.com/ericliddle)

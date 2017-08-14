@@ -19,14 +19,14 @@ const renderRoutes = () => (
  
     <Router history={browserHistory}>
         <Switch>
-            <Route path="/comments" component={Comments} />
-            <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/student" component={StudentProfile} />
+            <Route path="/instructor" component={InstructorProfile} />
+            <Route path="/comments" component={Comments} />
             <Route path="/projects" component={ProjectForm} />
             <Route path="/topics" component={TopicForm} />
             <Route path="/lessons" component={LessonForm} />
-            <Route path="/student/:id" component={StudentProfile} />
-            <Route path="/instructor/:id" component={InstructorProfile} />
             <Route component={NotFound} />
         </Switch>
   </Router>
