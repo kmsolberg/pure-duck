@@ -10,7 +10,7 @@ const ReviewCard = ({form}) => (
             subtitle={form.title}
         />
         <CardText>1: I feel I did {form.oneToFiveRadio}/5</CardText>  
-        <CardText>The lesson {form.trueOrFalse === true ? 'did' : 'did not' } help build up my general knowledge.</CardText> 
+        <CardText>2. The lesson {form.trueOrFalse === true ? 'did' : 'did not' } help build up my general knowledge.</CardText> 
         <CardText>3: {form.input1}</CardText>
         <CardText>4: {form.input2}</CardText>
         <CardText>5: {form.input3}</CardText>

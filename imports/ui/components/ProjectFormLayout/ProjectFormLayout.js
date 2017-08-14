@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
  
-import { Paper, DropDownMenu, MenuItem, RadioButton, RaisedButton } from 'material-ui';
+import { Paper, MenuItem, RadioButton, RaisedButton, SelectField } from 'material-ui';
 import {
     RadioButtonGroup,
     TextField
@@ -9,17 +9,58 @@ import {
 
 import './style.css';
 
+const appDevProjects = [
+    'Boomtown',
+    'Meteor',
+    'Coding Interview',
+    'r10',
+    'Community Project'
+];
+
+const webDevProjects = [
+    'Aloha',
+    'Instanews',
+    'Pong',
+    'Inhabitent',
+    'Mars Colony',
+    'Community Project'
+];
+
+const formSelect = ({
+    input,
+    label,
+    meta: { touched, error },
+    children,
+    ...custom
+}) =>
+    <SelectField
+        floatingLabelText={label}
+        errorText={touched && error}
+        {...input}
+        onChange={(event, index, value) => input.onChange(value)}
+        children={children}
+        {...custom}
+    />
+
 let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
     <form name="profileForm" className='Form' onSubmit={handleSubmit} >
         <Paper className='Paper'>
             <h1 name="title">Project</h1>
-            {/* <DropDownMenu value={1}>
-                <MenuItem value={1} primaryText="Never" />
-                <MenuItem value={2} primaryText="Every Night" />
-                <MenuItem value={3} primaryText="Weeknights" />
-                <MenuItem value={4} primaryText="Weekends" />
-                <MenuItem value={5} primaryText="Weekly" />
-            </DropDownMenu> */}
+            <div>
+                <Field
+                    name="titleSelect"
+                    component={formSelect}
+                    label="Which project are you reviewing?"
+                >
+                    {appDevProjects.map((project) => (
+                        <MenuItem
+                            key={project}
+                            primaryText={project}
+                            value={project}
+                        />
+                    ))}
+                </Field>
+            </div>
             <div>
                 <h1>How well do you think you did?</h1>
                 <h3>( 1-poorly, 5-well )</h3>

@@ -108,7 +108,7 @@ let Signup = ({ signUp }) => (
                 </div>
                 <div className="signupClass">
                     <h4>Class:</h4>
-                    <Field name="class" label="Select Your Class" component={formSelect} >
+                    <Field name="course" label="Select Your Class" component={formSelect} >
                         <MenuItem value={1} primaryText="WDP" />
                         <MenuItem value={2} primaryText="ADP" />
                     </Field>
