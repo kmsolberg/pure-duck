@@ -35,9 +35,9 @@ class InstructorProfileContainer extends Component {
                         handleSubmit={this.filterReviews}
                     />
                 </div>
-                {this.props.filteredReviews ? (
+                {this.props.filteredReviews.length ? (
                     <InstructorProfile 
-                        forms={this.filteredReviews} 
+                        forms={this.props.filteredReviews} 
                         className="review-cards"
                     />
                 ) : (
@@ -59,6 +59,7 @@ InstructorProfileContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         values: state.form.reviewSelector,
+        filteredReviews: state.review.reviews
     };
 }
 
