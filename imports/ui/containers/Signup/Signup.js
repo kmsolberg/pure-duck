@@ -116,8 +116,8 @@ let Signup = ({ signUp }) => (
                 <div className="singupRole">
                     <h4>Role:</h4>
                     <Field name="role" component={RadioButtonGroup}>
-                        <RadioButton value="true" label="Student" />
-                        <RadioButton value="false" label="Instructor" />
+                        <RadioButton value="student" label="Student" />
+                        <RadioButton value="instructor" label="Instructor" />
                     </Field>
                 </div>
                 <RaisedButton
