@@ -2,10 +2,10 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form'
 import {
     Paper,
-    DropDownMenu,
     MenuItem,
     RadioButton,
-    RaisedButton
+    RaisedButton,
+    SelectField
 } from 'material-ui';
 
 import {
@@ -16,9 +16,49 @@ import {
 
 import './style.css';
 
-function disableWeekends(date) {
-    return date.getDay() === 0 || date.getDay() === 6;
-}
+const formSelect = ({
+    input,
+    label,
+    meta: { touched, error },
+    children,
+    ...custom
+}) =>
+    <SelectField
+        floatingLabelText={label}
+        errorText={touched && error}
+        {...input}
+        onChange={(event, index, value) => input.onChange(value)}
+        children={children}
+        {...custom}
+    />
+
+const appDevTopics = [
+    'Redux',
+    'Node',
+    'Express',
+    'PostgreSQL',
+    'Meteor',
+    'TDD',
+    'React Native',
+    'Real Database'
+]
+
+const webDevTopics = [
+    'CSS',
+    'Responsive Web Design',
+    'Flexbox',
+    'JQuery',
+    'Ajax, JSON, APIs',
+    'GULP',
+    'SASS',
+    'Performance & Optimization',
+    'Accessibility',
+    'Javascript/ES.next',
+    'OOP',
+    'PHP',
+    'WordPress',
+    'Angular'
+]
 
 const required = value => (value == null ? 'Required' : undefined);
 
@@ -26,6 +66,21 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
     <form name="Topic" className='Form' onSubmit={handleSubmit} >
         <Paper className="topicform">
             <h2>Topics</h2>
+            <div>
+                <Field
+                    name="topicSelect"
+                    component={formSelect}
+                    label="Which topic do you want?"
+                >
+                    {appDevTopics.map((project) => (
+                        <MenuItem
+                            key={project}
+                            primaryText={project}
+                            value={project}
+                        />
+                    ))}
+                </Field>
+            </div>
             <div>
                 <h3>What do you feel is your level of understanding?</h3>
                 <h5>( 1-poorly, 5-well )</h5>

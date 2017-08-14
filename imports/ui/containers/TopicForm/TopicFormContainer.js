@@ -11,9 +11,11 @@ import TopicForm from './TopicForm';
 class TopicFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-
+        const course = this.props.user[0].profile.class;
+        const cohort= this.props.user[0].profile.cohort;
+        const form = 'topic';
+        const title = this.props.values.values.topicSelect;
         const date = new Date().toDateString();
-        const form = 'Topic';
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
         const input1= this.props.values.values.input1;
@@ -23,8 +25,11 @@ class TopicFormContainer extends Component {
         const input5= this.props.values.values.input5;
         Meteor.call(
             'forms.addProfileFormData', 
+            course,
+            cohort,
+            form,
+            title,
             date, 
-            form, 
             oneToFiveRadio, 
             trueOrFalse, 
             input1, 
@@ -63,7 +68,8 @@ function mapStateToProps(state) {
 const TopicContainer = createContainer(() => {
     Meteor.subscribe('forms');
     return{
-        forms: Forms.find().fetch()
+        forms: Forms.find().fetch(),
+        user: Meteor.users.find().fetch()
     }
 }, TopicFormContainer)
 
