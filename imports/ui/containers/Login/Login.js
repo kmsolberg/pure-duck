@@ -26,19 +26,23 @@ const Login = (login) => (
                 <h4>Username:</h4>
                 <TextField
                     hintText="Please Enter Your Name"
-                    floatingLabelFixed={true} />
+                    floatingLabelFixed={true}
+                    ref={(email) => this.email = email}
+                     />
+                    
                 <div className="password">
                     <h4>Password:</h4>
                     <TextField
                         hintText="Please Enter Your Password"
-                        floatingLabelFixed={true} />
+                        floatingLabelFixed={true} 
+                        ref={(password) => this.password = password}/>
                 </div>
                 <div className="username">
                     <RaisedButton
                         label="Submit"
                         className="enterButton"
                         type="submit"
-                        onSubmit={() => Meteor.loginWithPassword(username, password)} />
+                        onSubmit={() => Meteor.loginWithPassword(this.email.value, this.password.value)} />
                     {/* <RaisedButton
                             label="Register"
                             className="linktoregister"
