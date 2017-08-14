@@ -6,6 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Forms } from '../../../api/forms.js';
 import InstructorProfile from './InstructorProfile';
 import ReviewSelector from '../../components/ReviewSelector';
+import { filterReviews } from '../../redux/modules/Reviews';
 
 import './style.css';
 class InstructorProfileContainer extends Component {
@@ -20,7 +21,7 @@ class InstructorProfileContainer extends Component {
             if(error) {
                 alert('error!')
             } else {
-                console.log(result);
+                this.props.dispatch(filterReviews(result));
             }
         });
     }
@@ -34,9 +35,9 @@ class InstructorProfileContainer extends Component {
                         handleSubmit={this.filterReviews}
                     />
                 </div>
-                {this.props.filteredReviews ? (
+                {this.props.filteredReviews.length ? (
                     <InstructorProfile 
-                        forms={this.filteredReviews} 
+                        forms={this.props.filteredReviews} 
                         className="review-cards"
                     />
                 ) : (
@@ -58,6 +59,7 @@ InstructorProfileContainer.propTypes = {
 function mapStateToProps(state) {
     return {
         values: state.form.reviewSelector,
+        filteredReviews: state.review.reviews
     };
 }
 

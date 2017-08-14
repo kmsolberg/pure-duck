@@ -45,7 +45,7 @@ Meteor.methods({
             date: date.toString(),
             owner: this.userId,
             class: 'ADP',
-            cohort: '2',
+            cohort: 2,
             form: form,
             createdAt: new Date().toString(),
             oneToFiveRadio: oneToFiveRadio,
@@ -75,9 +75,9 @@ Meteor.methods({
     'forms.filterReviews'(classes, cohort, form, title) {
         return Forms.find({
             class: classes,
-            // cohort: cohort,
-            // form: form,
-            // title: title
+            cohort: cohort,
+            form: form,
+            title: title
         }).fetch()
     }
 })
