@@ -1,67 +1,85 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import AccountsUIWrapper from '../../components/AccountsUIWrapper/index.js';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Paper, RaisedButton } from 'material-ui';
+import { Field, reduxForm } from 'redux-form';
+import { TextField } from 'redux-form-material-ui';
 
 const style = {
     margin: 12,
 };
 
-export default Signup = ({signUp}) => (
+let Signup = ({ signUp }) => (
     <div className="loginformwrapper">
         <AccountsUIWrapper />
-        <Paper className="loginfields" zDepth={1}>
-            <form 
-                onSubmit={signUp} 
-                autoComplete="off"
-            >
+        <form
+            onSubmit={signUp}
+            autoComplete="off"
+        >
+            <Paper className="loginfields" zDepth={1}>
                 <h2 className="loginbanner">Register Your Account:</h2>
-                <div className="signupName">
+                {/* <div className="signupName">
                     <h4>Full Name:</h4>
-                    <TextField
+                    <Field
                         hintText="Full Name"
                         floatingLabelFixed={true} />
-                </div>
-                <div className="signupUsername">
+                </div> */}
+                {/* <div className="signupUsername">
                     <h4>Username:</h4>
-                    <TextField
+                    <Field
                         hintText="Username"
                         type="username"
                         floatingLabelFixed={true} />
-                </div>
+                </div> */}
                 <div className="signupEmail">
                     <h4>Email Address:</h4>
-                    <TextField
+                    <Field
+                        name="email"
+                        component={TextField}
                         hintText="example@email.com"
                         floatingLabelFixed={true} />
                 </div>
                 <div className="singupPassword">
                     <h4>Password:</h4>
-                    <TextField
+                    <Field
+                        name="password"
+                        component={TextField}
                         hintText="Password"
                         type="password"
                         floatingLabelFixed={true} />
                 </div>
-                <div className="signupPasswordConfirm">
+                {/* TODO: look up confirm password */}
+                {/* <div className="signupPasswordConfirm">
                     <h4>Confirm:</h4>
-                    <TextField
+                    <Field
+                        name="passwordconfirm"
                         hintText="Confirm Password"
                         floatingLabelFixed={true} />
-                </div>
+                </div> */}
                 {/* TODO: */}
                 {/* consider changing these to dropdown */}
+                <div className="signupCohort">
+                    <h4>Cohort:</h4>
+                    <Field
+                        name="cohort"
+                        component={TextField}
+                        hintText="Cohort"
+                        floatingLabelFixed={true} />
+                </div>
                 <div className="signupClass">
                     <h4>Class:</h4>
-                    <TextField
+                    <Field
+                        name="course"
+                        component={TextField}
                         hintText="Class"
                         floatingLabelFixed={true} />
                 </div>
-                <div className="signupCohort">
-                    <h4>Cohort:</h4>
-                    <TextField
-                        hintText="Cohort"
+                <div className="singupRole">
+                    <h4>Role:</h4>
+                    <Field
+                        name="role"
+                        component={TextField}
+                        hintText="Class"
                         floatingLabelFixed={true} />
                 </div>
                 <RaisedButton
@@ -69,10 +87,16 @@ export default Signup = ({signUp}) => (
                     className="enterButton"
                     type="submit"
                 />
-            </form>
-        </Paper>
+            </Paper>
+        </form>
     </div>
 );
-console.log("clicked");
+
+Signup = reduxForm({
+form: 'signupform'
+})(Signup)
+
+export default Signup;
+
 
 
