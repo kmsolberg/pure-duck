@@ -9,12 +9,12 @@ const style = {
     margin: 12,
 };
 
-export default Signup = ({signup}) => (
+export default Signup = ({signUp}) => (
     <div className="loginformwrapper">
         <AccountsUIWrapper />
         <Paper className="loginfields" zDepth={1}>
             <form 
-                onSubmit={signup} 
+                onSubmit={signUp} 
                 autoComplete="off"
             >
                 <h2 className="loginbanner">Register Your Account:</h2>

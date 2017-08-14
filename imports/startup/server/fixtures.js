@@ -8,9 +8,11 @@ Meteor.startup(() => {
   let user = {};
   if ( Meteor.users.find().count() === 0 ) {
     user = Accounts.createUser({
-      email : 'lauwangtatbrian@gmail.com',
+      email : '123123@gmail.com',
       password : 'laulau',
-      cohort: '8'
+      profile: {
+          cohort: '8'
+      }
     });
   }
 //   if ( ToDos.find().count() === 0 ) {
