@@ -1,9 +1,13 @@
 /* CSS declarations go here */
 body {
-    background-image: url(/images/water.jpeg);
+    background-image: url(/images/UXClassroom.jpeg);
     background-size: 100rem;
     background-repeat: no-repeat;
     color: #e1231a ;
     height: 100vh;
     margin: 0;
+}
+
+#app {
+    height: 100vh !important;
 }
