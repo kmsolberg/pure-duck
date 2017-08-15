@@ -1,4 +1,6 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -13,8 +15,8 @@ const Header = () => (
         className="appbar"
         showMenuIconButton={false}
         title={
-            <a href='/'>
-            <img className="redlogo" src="../../../../images/RED-Logos-RGB-03-cropped-1.svg" />
+            <a className="testname" href='/'>
+                <img className="redlogo" src="../../../../images/RED-Logos-RGB-03-cropped-1.svg" />
             </a>
         }
     >
@@ -25,8 +27,15 @@ const Header = () => (
         <a href="/student/1"><p>student</p></a>
         <a href="/instructor"><p>instructor</p></a>
 
+        <a href="/">
+            <RaisedButton
+                className="profilebtn"
+                label="Profile"
+                style={style}
+            />
+        </a>
         <RaisedButton
-            className="logoutbutton"
+            className="logoutbtn"
             label="Logout"
             style={style}
             onClick={() => Meteor.logout()}
