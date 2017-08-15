@@ -48,7 +48,7 @@ class ProjectFormContainer extends Component {
     render () {
         if (this.props.redirect) {
             return (
-                <Redirect to="/student/`${this.currentUserID}`"/>
+                <Redirect to="/results"/>
             )
         }
         return (

@@ -50,7 +50,7 @@ class LessonFormContainer extends Component {
     render () {
         if (this.props.redirect) {
             return (
-                <Redirect to="/student/:id"/>
+                <Redirect to="/results"/>
             )
         }
         return (
