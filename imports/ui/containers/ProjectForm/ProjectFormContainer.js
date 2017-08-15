@@ -15,7 +15,7 @@ class ProjectFormContainer extends Component {
         const course = this.props.user[0].profile.class;
         const cohort= this.props.user[0].profile.cohort;
         const form = 'project';
-        const title = this.props.values.values.titleSelect
+        const title = this.props.values.values.titleSelect;
         const date= new Date().toDateString();
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
@@ -31,6 +31,7 @@ class ProjectFormContainer extends Component {
             cohort,
             form,
             title,
+            lessonDate,
             date, 
             oneToFiveRadio, 
             trueOrFalse, 

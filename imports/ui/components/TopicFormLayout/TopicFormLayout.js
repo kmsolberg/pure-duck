@@ -115,7 +115,7 @@ let TopicFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                 />
             </div>
             <div>
-                <h3>Do you beleive this topic adequetly prepared you for the project?</h3>
+                <h3>Do you believe this topic adequetly prepared you for the project?</h3>
                 <Field className="formyesno" name="trueOrFalse" component={RadioButtonGroup}>
                     <RadioButton value="true" label="Yes" />
                     <RadioButton value="false" label="No" />

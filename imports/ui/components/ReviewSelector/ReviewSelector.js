@@ -77,7 +77,7 @@ const webDevTopics = [
     'Angular'
 ]
 
-let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue }) => {
+let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSelectValue, formSelectValue, topicSelectValue, dateSelectValue }) => {
 
     return (
         <div>
@@ -197,14 +197,17 @@ let ReviewSelector = ({ handleSubmit, onChangeAction, cohortSelectValue, classSe
                     {formSelectValue === 'lesson' &&
                         <div>
                             <Field
-                                name="topicSelect"
+                                name="dateSelect"
                                 component={DatePicker}
-                                format={null}
+                                format={null} 
                                 hintText="Which lesson?"
                             />
                         </div>
                     }
                     {topicSelectValue &&
+                        <RaisedButton onTouchTap={()=> handleSubmit()} label="Get the Reviews!" />
+                    }
+                    {dateSelectValue &&
                         <RaisedButton onTouchTap={()=> handleSubmit()} label="Get the Reviews!" />
                     }
                 </form>
@@ -224,11 +227,13 @@ ReviewSelector = connect(state => {
     const classSelectValue = selector(state, 'classSelect')
     const formSelectValue = selector(state, 'formSelect')
     const topicSelectValue = selector(state, 'topicSelect')
+    const dateSelectValue = selector(state, 'dateSelect')
     return {
         cohortSelectValue,
         classSelectValue,
         formSelectValue,
-        topicSelectValue
+        topicSelectValue,
+        dateSelectValue
     }
 })(ReviewSelector)
 
