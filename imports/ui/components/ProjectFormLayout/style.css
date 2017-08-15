@@ -15,3 +15,8 @@
 .Paper {
     width: 700px
 }
+
+.radiobuttons {
+    display: flex;
+    max-width: 5rem;
+}
