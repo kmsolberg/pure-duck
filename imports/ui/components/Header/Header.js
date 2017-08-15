@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import AppBar from 'material-ui/AppBar';
@@ -27,7 +27,7 @@ const Header = () => (
         <a href="/student/1"><p>student</p></a>
         <a href="/instructor"><p>instructor</p></a>
 
-        <a href="/">
+        <a href="/student">
             <RaisedButton
                 className="profilebtn"
                 label="Profile"
