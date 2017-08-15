@@ -16,6 +16,18 @@
     width: 700px
 }
 
+.review-card {
+    margin: 1rem;
+    flex: 0 1 33%;
+}
+
+.review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 .radiobuttons {
     display: flex;
     max-width: 5rem;

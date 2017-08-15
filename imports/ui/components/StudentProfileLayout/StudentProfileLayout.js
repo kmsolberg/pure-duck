@@ -20,7 +20,7 @@ const StudentProfileLayout = ({forms, ReviewCount}) => (
                 </Link>
             </div>
         </Paper>
-        <Paper >
+        {/* <Paper >
             <h1>{ReviewCount} Past {ReviewCount === 1 ? 'Review' : 'Reviews'}...</h1>   
             {forms.map((form, index) => (
                 <Card key={index} className='reviewCard' style={{backgroundColor: 'skyBlue', margin: `25px 0`}}>
@@ -31,7 +31,7 @@ const StudentProfileLayout = ({forms, ReviewCount}) => (
                     </CardText>
                 </Card>
             ))}
-        </Paper>
+        </Paper> */}
     </div>
 )
 
