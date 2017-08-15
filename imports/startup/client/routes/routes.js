@@ -20,7 +20,7 @@ const renderRoutes = () => (
  
     <Router history={browserHistory}>
         <Switch>
-            <Route path="/login" component={Login} />
+            <Route exact path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <PrivateRoute exact path="/" component={StudentProfile} />
             <PrivateRoute exact path="/results" component={InstructorProfile} />
