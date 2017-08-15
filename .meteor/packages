@@ -23,5 +23,5 @@ momentjs:moment
 accounts-password
 useraccounts:core
 session
-accounts-ui
 check
+accounts-ui

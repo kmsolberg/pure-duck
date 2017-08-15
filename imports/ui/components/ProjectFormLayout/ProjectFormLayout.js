@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux'
  
 import { Paper, MenuItem, RadioButton, RaisedButton, SelectField } from 'material-ui';
 import {
@@ -42,25 +43,56 @@ const formSelect = ({
         {...custom}
     />
 
-let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
+let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset, classSelectValue }) => (
     <form name="profileForm" className='Form' onSubmit={handleSubmit} >
         <Paper className='Paper'>
             <h1 name="title">Project</h1>
             <div>
                 <Field
-                    name="titleSelect"
+                    name="classSelect"
                     component={formSelect}
-                    label="Which project are you reviewing?"
+                    label="Select a Class"
                 >
-                    {appDevProjects.map((project) => (
-                        <MenuItem
-                            key={project}
-                            primaryText={project}
-                            value={project}
-                        />
-                    ))}
+                    <MenuItem value="ADP" primaryText="App Development" />
+                    <MenuItem value="WDP" primaryText="Web Development" />
                 </Field>
             </div>
+
+            {classSelectValue==='ADP' &&
+                <div>
+                    <Field
+                        name="titleSelect"
+                        component={formSelect}
+                        label="Which project are you reviewing?"
+                    >
+                        {appDevProjects.map((project) => (
+                            <MenuItem
+                                key={project}
+                                primaryText={project}
+                                value={project}
+                            />
+                        ))}
+                    </Field>
+                </div>
+            }
+            {classSelectValue==='WDP' &&
+                <div>
+                    <Field
+                        name="titleSelect"
+                        component={formSelect}
+                        label="Which project are you reviewing?"
+                    >
+                        {webDevProjects.map((project) => (
+                            <MenuItem
+                                key={project}
+                                primaryText={project}
+                                value={project}
+                            />
+                        ))}
+                    </Field>
+                </div>
+            }
+
             <div>
                 <h1>How well do you think you did?</h1>
                 <h3>( 1-poorly, 5-well )</h3>
@@ -178,6 +210,15 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
 )
 ProjectFormLayout = reduxForm({
     form: 'forms'
+})(ProjectFormLayout)
+
+const selector = formValueSelector('forms')
+
+ProjectFormLayout = connect(state => {
+    const classSelectValue = selector(state, 'classSelect')
+    return {
+        classSelectValue,
+    }
 })(ProjectFormLayout)
 
 export default ProjectFormLayout;

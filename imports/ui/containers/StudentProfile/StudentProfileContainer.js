@@ -19,7 +19,7 @@ class StudentProfileContainer extends Component {
                     </div>
                 )
                 :
-                <div>
+                <div className="student-profile">
                     <StudentProfile forms={this.props.forms} ReviewCount={this.props.ReviewCount}/>
                     <ReviewCardList forms={this.props.forms} />
                 </div>
