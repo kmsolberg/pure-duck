@@ -31,8 +31,8 @@ class SignupContainer extends Component {
         const redirect = this.props.dispatch(loadFormRedirect(true));
     };
     render() {
-        const usid= Meteor.userId()
-        if (usid) {
+
+        if (this.props.redirect || Meteor.userId()) {
             return (
                 <Redirect to="/student/1" />
             )
