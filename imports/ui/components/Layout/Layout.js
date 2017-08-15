@@ -11,8 +11,6 @@ const Layout = ({ children }) => (
             <Header className="headerClass" />
         </div>
         <div className="inlayout">
-                    <AccountsUIWrapper />
-
             {children}
         </div>
         <span className="copyright">
