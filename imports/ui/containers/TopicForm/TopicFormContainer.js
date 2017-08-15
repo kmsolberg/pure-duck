@@ -11,7 +11,7 @@ import TopicForm from './TopicForm';
 class TopicFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        const course = this.props.user[0].profile.class;
+        const course = this.props.values.values.classSelect;
         const cohort= this.props.user[0].profile.cohort;
         const form = 'topic';
         const title = this.props.values.values.topicSelect;
@@ -51,7 +51,10 @@ class TopicFormContainer extends Component {
             )
         }
         return (
-            <TopicForm handleSubmit={this.handleSubmit} />
+            <TopicForm 
+                handleSubmit={this.handleSubmit}
+                user={this.props.user}
+            />
         )
     }
 }
