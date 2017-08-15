@@ -26,10 +26,10 @@ const style = {
 
 let Login = ({submitHandler}) => (
 
-    <Paper className="iminpaper">
+    <Paper className="loginform">
         <AccountsUIWrapper />
         <div className="loginformwrapper">
-            <form  onSubmit={(e)=>submitHandler(e)} autoComplete="off">
+            {/* <form  onSubmit={(e)=>submitHandler(e)} autoComplete="off">
                 <h2 className="loginbanner">Login:</h2>
                 <h4>Username:</h4>
                 <Field
@@ -63,7 +63,7 @@ let Login = ({submitHandler}) => (
                         />
                     </a>
                 </div>
-            </form>
+            </form> */}
         </div>
     </Paper >
 

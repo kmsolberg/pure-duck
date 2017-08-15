@@ -3,16 +3,22 @@
 }
 
 .copyright {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
+    /* position: relative;
+    bottom: 0; */
 }
 
 .copyright h1 {
     position: relative;
     bottom: 0;
+
 }
 
 .inlayout {
-    display: flex;
-    justify-content: center;
+    position: relative !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
 }

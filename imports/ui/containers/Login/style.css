@@ -1,6 +1,7 @@
-.iminpaper {
-    width: 75%;
+.loginform {
+    width: 50%;
     margin: 0 auto;
+    margin-top: 2rem;
 }
 
 .loginbanner {
@@ -8,7 +9,7 @@
 }
 
 .loginformwrapper {
-    
+    padding: 1rem;
 }
 
 .loginfields {
