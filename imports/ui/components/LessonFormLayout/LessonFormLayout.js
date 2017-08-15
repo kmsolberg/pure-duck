@@ -55,7 +55,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     hintText="Type Here"
                     floatingLabelText="Got stuck?"
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
@@ -66,7 +66,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     hintText="Type Here"
                     floatingLabelText="What do you really think..."
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
@@ -84,7 +84,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     hintText="Type Here"
                     floatingLabelText="That one thing you still don't get"
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
@@ -95,7 +95,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
                     hintText="Type Here"
                     floatingLabelText="Be honest!"
                     multiLine
-                    rows={3}
+                    rows={1}
                 />
             </div>
             <div>
