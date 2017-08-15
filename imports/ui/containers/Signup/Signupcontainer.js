@@ -34,7 +34,7 @@ class SignupContainer extends Component {
 
         if (this.props.redirect || Meteor.userId()) {
             return (
-                <Redirect to="/student/1" />
+                <Redirect to="/student" />
             )
         }
         return (
