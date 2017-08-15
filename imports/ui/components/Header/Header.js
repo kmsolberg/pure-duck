@@ -25,7 +25,7 @@ const Header = () => (
         <a href="/login"><p>login</p></a>
         <a href="/submit"><p>submit</p></a>
         <a href="/"><p>student</p></a>
-        <a href="/instructor"><p>instructor</p></a>
+        <a href="/results"><p>results</p></a>
 
         <a href="/student">
             <RaisedButton
