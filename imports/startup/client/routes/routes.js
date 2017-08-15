@@ -22,7 +22,7 @@ const renderRoutes = () => (
         <Switch>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <PrivateRoute path="/" component={StudentProfile} />
+            <PrivateRoute exact path="/" component={StudentProfile} />
             <PrivateRoute path="/instructor" component={InstructorProfile} />
             <PrivateRoute path="/comments" component={Comments} />
             <PrivateRoute path="/projects" component={ProjectForm} />
