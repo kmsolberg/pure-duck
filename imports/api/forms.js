@@ -38,7 +38,6 @@ Meteor.methods({
     ) {
         check(cohort, Number);
         check(form, String);
-        check(title, String);
         check(date, String);
         check(oneToFiveRadio, Number);
         check(trueOrFalse, String);

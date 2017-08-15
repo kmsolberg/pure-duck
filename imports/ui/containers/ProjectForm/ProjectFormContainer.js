@@ -12,10 +12,11 @@ import ProjectForm from './ProjectForm';
 class ProjectFormContainer extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
-        const course = this.props.user[0].profile.class;
+        const course = this.props.values.values.classSelect;
         const cohort= this.props.user[0].profile.cohort;
         const form = 'project';
         const title = this.props.values.values.titleSelect;
+        const lessonDate = null;
         const date= new Date().toDateString();
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
