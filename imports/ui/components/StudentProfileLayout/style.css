@@ -2,9 +2,12 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+     width: 100%; 
+    padding-top: 1rem;
+}
 
-    width: 1240px;
-    padding: 2%;
+.student-profile {
+    width: 75rem;
 }
 
 .btn-container {

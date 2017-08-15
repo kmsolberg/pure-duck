@@ -20,9 +20,9 @@ const StudentProfileLayout = ({forms, ReviewCount}) => (
                 </Link>
             </div>
         </Paper>
-        {/* <Paper >
+        <Paper > 
             <h1>{ReviewCount} Past {ReviewCount === 1 ? 'Review' : 'Reviews'}...</h1>   
-            {forms.map((form, index) => (
+            {/* {forms.map((form, index) => (
                 <Card key={index} className='reviewCard' style={{backgroundColor: 'skyBlue', margin: `25px 0`}}>
                     <CardText style={{color: 'white'}}>
                         <h5>Form-Type: {form.form}</h5>
@@ -30,8 +30,8 @@ const StudentProfileLayout = ({forms, ReviewCount}) => (
                         <p>I feel like I did {form.oneToFiveRadio} /5</p>
                     </CardText>
                 </Card>
-            ))}
-        </Paper> */}
+            ))} */}
+        </Paper>
     </div>
 )
 
