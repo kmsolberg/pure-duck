@@ -84,10 +84,10 @@ Meteor.methods({
     // },
 
     'forms.filterReviews'(classes, cohort, form, title, lessonDate) {
-        check(cohort, Number);
-        check(classes, String);
-        check(title, String);
-        check(form, String);
+        // check(cohort, Number);
+        // check(classes, String);
+        // check(title, String);
+        // check(form, String);
   
         if (!lessonDate) {
             return Forms.find({
@@ -95,7 +95,7 @@ Meteor.methods({
                 cohort: cohort,
                 form: form,
                 title: title
-            })
+            }).fetch()
         } else {
             return Forms.find({
                 class: classes,

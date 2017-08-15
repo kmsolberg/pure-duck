@@ -54,8 +54,8 @@ let Login = ({submitHandler}) => (
                         label="Submit"
                         className="enterButton"
                         type="submit"
-                   />
                         onSubmit={() => Meteor.loginWithPassword(this.email.value, this.password.value)} />
+                   />
                     <a href="/signup">
                         <RaisedButton
                             label="Register"
