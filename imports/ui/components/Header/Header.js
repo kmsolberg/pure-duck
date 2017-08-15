@@ -15,7 +15,7 @@ const Header = () => (
         className="appbar"
         showMenuIconButton={false}
         title={
-            <a className="testname" href='/'>
+            <a href="/student">
                 <img className="redlogo" src="../../../../images/RED-Logos-RGB-03-cropped-1.svg" />
             </a>
         }
@@ -41,8 +41,6 @@ const Header = () => (
             onClick={() => Meteor.logout()}
         />
     </AppBar>
-
-
 );
 
 export default Header;

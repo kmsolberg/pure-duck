@@ -21,8 +21,8 @@ const renderRoutes = () => (
     <Router history={browserHistory}>
         <Switch>
             <Route path="/login" component={Login} />
+            <PrivateRoute path="/" component={StudentProfile} />
             <PrivateRoute path="/signup" component={Signup} />
-            <PrivateRoute path="/student" component={StudentProfile} />
             <PrivateRoute path="/instructor" component={InstructorProfile} />
             <PrivateRoute path="/comments" component={Comments} />
             <PrivateRoute path="/projects" component={ProjectForm} />
