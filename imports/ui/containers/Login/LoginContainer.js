@@ -20,7 +20,7 @@ render() {
         const usid= Meteor.userId()
         if (usid) {
             return (
-                <Redirect to="/student" />
+                <Redirect to="/" />
             )
         }
         return (
