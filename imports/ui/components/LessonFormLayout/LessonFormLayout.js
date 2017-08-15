@@ -25,7 +25,7 @@ const required = value => (value == null ? 'Required' : undefined);
 
 let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
     <form name="Lesson" className='Form' onSubmit={handleSubmit} >
-        <Paper >
+        <Paper className="lessoncontainer">
             <h3>Lessons</h3>
             <div>
                 <Field
@@ -39,7 +39,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             <div>
                 <h3>How well do you think you did?</h3>
                 <h4>( 1-poorly, 5-well )</h4>
-                <Field name="oneToFiveRadio" component={RadioButtonGroup}>
+                <Field className="radiobuttons" name="oneToFiveRadio" component={RadioButtonGroup}>
                     <RadioButton value="1" label="1" />
                     <RadioButton value="2" label="2" />
                     <RadioButton value="3" label="3" />
@@ -71,7 +71,7 @@ let LessonFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             </div>
             <div>
                 <h3>Do you think the lesson adequately prepared you for the lab?</h3>
-                <Field name="trueOrFalse" component={RadioButtonGroup}>
+                <Field className="radiobuttons" name="trueOrFalse" component={RadioButtonGroup}>
                     <RadioButton value="true" label="Yes" />
                     <RadioButton value="false" label="No" />
                 </Field>
