@@ -1,0 +1,11 @@
+.review-card {
+    margin: 1rem;
+    flex: 0 1 30%;
+}
+
+.review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
