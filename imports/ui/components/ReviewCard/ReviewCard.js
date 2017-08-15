@@ -4,7 +4,7 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import './style.css';
 
 const ReviewCard = ({form}) => (
-    <Card>
+    <Card className="review-card">
         <CardHeader 
             title={form.form}
             subtitle={form.title}

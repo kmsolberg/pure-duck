@@ -7,6 +7,7 @@ import { Paper, DropDownMenu, MenuItem, TextField, RadioButton, RadioButtonGroup
 import { Link } from 'react-router-dom';
 
 import StudentProfile from './StudentProfile';
+import ReviewCardList from '../../components/ReviewCardList/';
 
 class StudentProfileContainer extends Component {
     render () {
@@ -18,7 +19,10 @@ class StudentProfileContainer extends Component {
                     </div>
                 )
                 :
-                <StudentProfile forms={this.props.forms} ReviewCount={this.props.ReviewCount}/>
+                <div>
+                    <StudentProfile forms={this.props.forms} ReviewCount={this.props.ReviewCount}/>
+                    <ReviewCardList forms={this.props.forms} />
+                </div>
                 }
             </div>
         )
