@@ -31,6 +31,7 @@ const renderRoutes = () => (
             <PrivateRoute component={NotFound} />
         </Switch>
   </Router>
+  
 );
 
 
