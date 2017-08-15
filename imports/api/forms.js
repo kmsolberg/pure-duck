@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 // import SimpleSchema from 'simpl-schema';
+import { check } from 'meteor/check'
  
 export const Forms = new Mongo.Collection('forms');
 
@@ -10,26 +11,12 @@ if (Meteor.isServer) {
   })
 }
 
-// FormSchema = new SimpleSchema ({
-//     "title": {
-//         type: String,
-//         label: "Name of the form"
-//     },
-//     "cohort": {
-//         type: Number,
-//         label: "Which cohort is the form for?"
-//     },
-//     "class": {
-//         type: String,
-//         label: "Which class is the form for?"
-//     },
-//     "formSubmitted": {
-//         type: Date,
-//         label: "The date the form was submitted"
-//     }
+// Forms.schema = new SimpleSchema({
+//   course: {type: String},
+//   cohort: {type: Number}
 // });
 
-// Forms.attachSchema( FormSchema );
+// Forms.attachSchema(Forms.schema);
 
 // Allow Client to do these things only to this collection...
 Meteor.methods({
@@ -49,9 +36,22 @@ Meteor.methods({
         input4, 
         input5
     ) {
+        check(cohort, Number);
+        check(form, String);
+        check(title, String);
+        check(date, String);
+        check(oneToFiveRadio, Number);
+        check(trueOrFalse, String);
+        check(input1, String);
+        check(input2, String);
+        check(input3, String);
+        check(input4, String);
+        check(input5, String);
+
         if (!this.userId) {
             throw new Meteor.Error('You are not authorized')
         }
+
         Forms.insert({
             owner: this.userId,
             class: course,
@@ -85,6 +85,11 @@ Meteor.methods({
     // },
 
     'forms.filterReviews'(classes, cohort, form, title, lessonDate) {
+        check(cohort, Number);
+        check(classes, String);
+        check(title, String);
+        check(form, String);
+  
         if (!lessonDate) {
             return Forms.find({
                 class: classes,
