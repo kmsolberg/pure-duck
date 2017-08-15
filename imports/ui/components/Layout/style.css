@@ -11,3 +11,8 @@
     position: relative;
     bottom: 0;
 }
+
+.inlayout {
+    display: flex;
+    justify-content: center;
+}
