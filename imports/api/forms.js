@@ -26,6 +26,7 @@ Meteor.methods({
         cohort,
         form,
         title,
+        lessonDate,
         date,
         oneToFiveRadio, 
         trueOrFalse, 
@@ -57,6 +58,7 @@ Meteor.methods({
             cohort: cohort,
             form: form,
             title: title,
+            lessonDate: lessonDate,
             createdAt: date,
             oneToFiveRadio: oneToFiveRadio,
             trueOrFalse: trueOrFalse,
@@ -82,17 +84,26 @@ Meteor.methods({
     //     Forms.find({cohort: value}).fetch()
     // },
 
-    'forms.filterReviews'(classes, cohort, form, title) {
+    'forms.filterReviews'(classes, cohort, form, title, lessonDate) {
         check(cohort, Number);
         check(classes, String);
         check(title, String);
         check(form, String);
-        
-        return Forms.find({
-            class: classes,
-            cohort: cohort,
-            form: form,
-            title: title
-        }).fetch()
+  
+        if (!lessonDate) {
+            return Forms.find({
+                class: classes,
+                cohort: cohort,
+                form: form,
+                title: title
+            })
+        } else {
+            return Forms.find({
+                class: classes,
+                cohort: cohort,
+                form: form,
+                lessonDate: lessonDate.toDateString()
+            }).fetch()
+        }
     }
 })

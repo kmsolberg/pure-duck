@@ -15,6 +15,7 @@ class TopicFormContainer extends Component {
         const cohort= this.props.user[0].profile.cohort;
         const form = 'topic';
         const title = this.props.values.values.topicSelect;
+        const lessonDate = null;
         const date = new Date().toDateString();
         const oneToFiveRadio = parseInt(this.props.values.values.oneToFiveRadio);
         const trueOrFalse = this.props.values.values.trueOrFalse;
@@ -29,6 +30,7 @@ class TopicFormContainer extends Component {
             cohort,
             form,
             title,
+            lessonDate,
             date, 
             oneToFiveRadio, 
             trueOrFalse, 

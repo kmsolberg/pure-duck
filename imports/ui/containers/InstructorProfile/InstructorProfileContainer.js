@@ -12,11 +12,13 @@ import './style.css';
 class InstructorProfileContainer extends Component {
     
     filterReviews = (values) => {
+
         Meteor.call('forms.filterReviews', 
             this.props.values.values.classSelect,
             this.props.values.values.cohortSelect,
             this.props.values.values.formSelect,
             this.props.values.values.topicSelect,
+            this.props.values.values.dateSelect,
             (error, result) => {
             if(error) {
                 alert('error!')
