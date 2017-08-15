@@ -1,32 +1,54 @@
 import React, { Component } from 'react';
 import {Accounts } from 'meteor/accounts-base';
 import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Forms } from '../../../api/forms';
+
+import { LogInAction } from '../../redux/modules/LogIn';
 
 import Login from './Login';
 
 class LoginContainer extends Component {
-    // render() {
-//         return (
-//             <div className="row">
-//                 <div className="col-md-4 col-md-offset-4">
-//                     <Login />
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
+    submitHandler = () => {
+        event.preventDefault();
+        const email = this.props.logIn.email;
+        const password= this.props.logIn.password;
+
+        Meteor.loginWithPassword(email, password, function(error) {
+        if (error) {
+            console.log("There was an error:" + error.reason);
+        } else {
+            FlowRouter.go('/');
+        }
+        });
+    }
 
 render() {
-        const usid= Meteor.userId()
-        if (usid) {
+        if (Meteor.userId()) {
             return (
-                <Redirect to="/student" />
+                <Redirect to="/" />
             )
         }
         return (
-            <Login />
+            <Login submitHandler={this.submitHandler}/>
         )
     };
 }
 
-export default LoginContainer;
+function mapStateToProps(state) {
+    return {
+        logIn: state.logIn.logInUser
+    };
+}
+
+const logContainer = createContainer(() => {
+    Meteor.subscribe('forms');
+    return{
+        forms: Forms.find().fetch(),
+        user: Meteor.users.find().fetch()
+    }
+}, LoginContainer)
+
+export default connect(mapStateToProps)(logContainer)
+
