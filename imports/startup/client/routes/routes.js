@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route,  Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 // route components
+import PrivateRoute from '../../../ui/components/PrivateRoute/';
 import Login from '../../../ui/containers/Login/';
 import Signup from '../../../ui/containers/Signup/';
 import StudentProfile from '../../../ui/containers/StudentProfile/';
@@ -19,15 +20,15 @@ const renderRoutes = () => (
  
     <Router history={browserHistory}>
         <Switch>
-            <Route path="/comments" component={Comments} />
-            <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/projects" component={ProjectForm} />
-            <Route path="/topics" component={TopicForm} />
-            <Route path="/lessons" component={LessonForm} />
-            <Route path="/student/:id" component={StudentProfile} />
-            <Route path="/instructor/:id" component={InstructorProfile} />
-            <Route component={NotFound} />
+            <PrivateRoute path="/signup" component={Signup} />
+            <PrivateRoute path="/student" component={StudentProfile} />
+            <PrivateRoute path="/instructor" component={InstructorProfile} />
+            <PrivateRoute path="/comments" component={Comments} />
+            <PrivateRoute path="/projects" component={ProjectForm} />
+            <PrivateRoute path="/topics" component={TopicForm} />
+            <PrivateRoute path="/lessons" component={LessonForm} />
+            <PrivateRoute component={NotFound} />
         </Switch>
   </Router>
 );
