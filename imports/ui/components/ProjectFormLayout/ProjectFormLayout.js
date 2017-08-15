@@ -64,7 +64,7 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             <div>
                 <h1>How well do you think you did?</h1>
                 <h3>( 1-poorly, 5-well )</h3>
-                <Field name="oneToFiveRadio" component={RadioButtonGroup}>
+                <Field className="radiobuttons" name="oneToFiveRadio" component={RadioButtonGroup}>
                     <RadioButton
                         value="1"
                         label="1"
@@ -94,7 +94,7 @@ let ProjectFormLayout = ({ handleSubmit, pristine, submitting, reset }) => (
             </div>
             <div>
                 <h1>Do you feel like the lessons built toward the project?</h1>
-                <Field name="trueOrFalse" component={RadioButtonGroup}
+                <Field className="radiobuttons" name="trueOrFalse" component={RadioButtonGroup}
                 >
                     <RadioButton
                         value="true"

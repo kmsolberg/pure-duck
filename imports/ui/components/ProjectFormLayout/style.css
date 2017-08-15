@@ -27,3 +27,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.radiobuttons {
+    display: flex;
+    max-width: 5rem;
+}
