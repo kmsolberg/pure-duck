@@ -23,7 +23,7 @@ const renderRoutes = () => (
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <PrivateRoute exact path="/" component={StudentProfile} />
-            <PrivateRoute exact path="/instructor" component={InstructorProfile} />
+            <PrivateRoute exact path="/results" component={InstructorProfile} />
             <PrivateRoute path="/comments" component={Comments} />
             <PrivateRoute path="/projects" component={ProjectForm} />
             <PrivateRoute path="/topics" component={TopicForm} />
