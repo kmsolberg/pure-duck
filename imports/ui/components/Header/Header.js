@@ -27,7 +27,7 @@ const Header = () => (
         <a href="/"><p> student </p></a>
         <a href="/results"><p> results </p></a>
 
-        <a href="/student">
+        <a href="/">
             <RaisedButton
                 className="profilebtn"
                 label="Profile"
