@@ -20,6 +20,13 @@
 }
 
 .logoutbtn {
-    color: white !important;
-    height: 36px;
+    height: 36px
+}
+
+.logoutbtn span {
+    color: #FFF !important;
+}
+
+.logoutbtn button {
+    background-color: black !important;
 }
