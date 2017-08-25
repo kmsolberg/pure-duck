@@ -8,6 +8,6 @@ body {
     margin: 0;
 }
 
-#app {
+.bodyheight {
     height: 100vh !important;
 }
